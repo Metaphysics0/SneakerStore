@@ -1,0 +1,30 @@
+.button {
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    padding: 1.15rem 1.75rem;
+    text-transform: uppercase;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    background: var(--impact-pink);
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-smooth);
+    }
+    &:active {
+      transform: translateY(2px);
+      box-shadow: var(--shadow-smooth-light);
+    }
+  }
+
+  &--search {
+    font-weight: 600;
+    background-color: var(--impact-pink);
+  }
+}

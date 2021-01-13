@@ -1,0 +1,26 @@
+// Search.jsx
+
+.search {
+  display: flex;
+  flex-direction: column;
+  &__input {
+    padding: 1rem 1.75rem;
+    border-radius: 15px;
+    margin-right: 1rem;
+    outline: none;
+    border: 1px solid grey;
+    color: darkslategrey;
+    font-size: 2rem;
+    width: 32.75rem;
+    font-weight: 300;
+    font-style: italic;
+    transition: all 0.5s ease;
+    &:hover {
+      width: 34rem;
+    }
+    &:active,
+    &:focus {
+      width: 34.5rem;
+    }
+  }
+}
