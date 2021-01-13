@@ -1,0 +1,31 @@
+// Marquee.jsx
+.marquee {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #ffffffdd;
+  overflow: hidden;
+  height: 3.5rem;
+  position: relative;
+  font-size: 1.25rem;
+  &__content {
+    display: flex;
+    width: 200%;
+    position: absolute;
+    overflow: hidden;
+    animation: marquee 45s linear infinite;
+  }
+  &__item {
+    float: left;
+    width: 50%;
+    // margin: 0 1rem;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}

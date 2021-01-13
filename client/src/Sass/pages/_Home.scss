@@ -1,0 +1,16 @@
+// Home.jsx
+.home {
+  background-color: #ff0000;
+  width: 55rem;
+  padding: 3rem;
+  border-radius: 20px;
+  border: 4px solid blueviolet;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  &__logo {
+    width: 35rem;
+    height: 35rem;
+  }
+}
