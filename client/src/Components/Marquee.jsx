@@ -1,33 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+const SNEAKER_URL = `https://api.thesneakerdatabase.com/v1/sneakers?limit=25&releaseYear=2020`;
 
 const Marquee = () => {
+  const [sneakers, setSneakers] = useState([]);
+
+  useEffect(() => {
+    const getSneakers = async () => {
+      try {
+        const response = await fetch(SNEAKER_URL);
+        const data = await response.json();
+        console.log(data);
+        return setSneakers(data);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+    getSneakers();
+  }, []);
+
   return (
     <div className="marquee mb-3">
       <div className="marquee__content">
-        <span className="marquee__item">Yeezys</span>
-        <span className="marquee__item">Supreme</span>
-        <span className="marquee__item">Vans</span>
-        <span className="marquee__item">Huf</span>
-        <span className="marquee__item">Yeezys</span>
-        <span className="marquee__item">Supreme</span>
-        <span className="marquee__item">Vans</span>
-        <span className="marquee__item">Huf</span>
-        <span className="marquee__item">Yeezys</span>
-        <span className="marquee__item">Supreme</span>
-        <span className="marquee__item">Vans</span>
-        <span className="marquee__item">Huf</span>
-        <span className="marquee__item">Yeezys</span>
-        <span className="marquee__item">Supreme</span>
-        <span className="marquee__item">Vans</span>
-        <span className="marquee__item">Huf</span>
-        <span className="marquee__item">Yeezys</span>
-        <span className="marquee__item">Supreme</span>
-        <span className="marquee__item">Vans</span>
-        <span className="marquee__item">Huf</span>
-        <span className="marquee__item">Yeezys</span>
-        <span className="marquee__item">Supreme</span>
-        <span className="marquee__item">Vans</span>
-        <span className="marquee__item">Huf</span>
+        {sneakers.results ? (
+          sneakers.results.map((item) => (
+            <span key={item.id} className="marquee__item">
+              {item.brand} - {item.name} &nbsp;
+              <span className="price">${item.retailPrice}</span>
+            </span>
+          ))
+        ) : (
+          <span className="marquee__item">Loading Marquee!!</span>
+        )}
       </div>
     </div>
   );

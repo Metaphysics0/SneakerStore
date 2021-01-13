@@ -8,12 +8,15 @@ const Home = () => {
     <>
       <Marquee />
       <div className="home">
-        {/* <h1 className="heading__primary mb-1">SNEAKERSTORE</h1> */}
         <img className="home__logo" src={Logo} alt="Logo" />
         <Link to="/search">
           <button className="button button--blue">Enter</button>
         </Link>
       </div>
+      <h3 className="home__quote">
+        Would you believe in what you believe in if you were the only one who believed it?
+        <br /> - Kanye West
+      </h3>
     </>
   );
 };
