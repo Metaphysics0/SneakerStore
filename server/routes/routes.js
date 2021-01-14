@@ -3,8 +3,7 @@ const { auth, requiresAuth } = require('express-openid-connect');
 const router = express.Router();
 
 const { user } = require('../controllers/user');
-const { register } = require('../controllers/auth');
-const { profile } = require('../controllers/auth');
+const { register, profile } = require('../controllers/auth');
 
 // user routes
 router.get('/user/:id', user);

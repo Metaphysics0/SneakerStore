@@ -29,7 +29,6 @@ app.use(
     secret: process.env.SECRET,
     authRequired: false,
     auth0Logout: true,
-    idpLogout: true,
   })
 );
 
@@ -38,6 +37,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 
 //routes
 app.use('/api', routes);
