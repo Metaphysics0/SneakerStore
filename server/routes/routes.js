@@ -8,6 +8,6 @@ const { register, profile } = require('../controllers/auth');
 // user routes
 router.get('/user/:id', user);
 router.get('/', register)
-router.get('/profile', requiresAuth, profile)
+router.get('/profile', requiresAuth(), profile)
 
 module.exports = router

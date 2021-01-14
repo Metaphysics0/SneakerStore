@@ -8,9 +8,5 @@ exports.register = (req, res) => {
 
 
 exports.profile = (req, res) => {
-    try {
-        res.send(JSON.stringify(req.oidc.user))
-    } catch (e) {
-        res.status(500).json({ error: e });
-    }
+    res.send(JSON.stringify(req.oidc.user));
 };
