@@ -1,0 +1,38 @@
+// Marquee.jsx
+.marquee {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #ffffffdd;
+  overflow: hidden;
+  height: 4rem;
+  position: relative;
+  font-size: 1.5rem;
+  &__content {
+    display: flex;
+    align-items: center;
+    width: 500%;
+    position: absolute;
+    overflow: hidden;
+    animation: marquee 45s linear infinite;
+  }
+  &__item {
+    font-weight: 500;
+    text-align: center;
+    float: left;
+    width: max-content;
+    margin: 0 2rem;
+    .price {
+      font-weight: 600;
+      color: green;
+    }
+  }
+}
+
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}

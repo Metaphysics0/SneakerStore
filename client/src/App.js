@@ -1,4 +1,4 @@
-import './Sass/base.scss';
+import './Sass/main.scss';
 import Main from './Routes/Main';
 
 function App() {
