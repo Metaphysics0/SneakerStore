@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const bcrypt = require('bcrypt');
 
 // Get current user profile
 exports.user = async (req, res) => {
@@ -9,4 +10,8 @@ exports.user = async (req, res) => {
     res.status(500).json({ error: e });
   }
 };
+
+
+// Updating users, deleting etc..
+
 
