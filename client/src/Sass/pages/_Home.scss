@@ -1,14 +1,15 @@
 // Home.jsx
 .home {
-  background-color: #ff0000;
+  background-color: #000;
   width: 55rem;
   padding: 3rem;
   border-radius: 20px;
-  border: 4px solid #8a2be2;
+  border: 4px solid cyan;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto 3rem auto;
+  box-shadow: var(--shadow-dreamy);
   &__logo {
     width: 35rem;
     height: 35rem;

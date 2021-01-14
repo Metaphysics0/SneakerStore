@@ -1,0 +1,9 @@
+@mixin top-nav {
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #ffffffdd;
+  overflow: hidden;
+  height: 4rem;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-card);
+}

@@ -1,26 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineSearch } from 'react-icons/ai';
+import { GoSearch } from 'react-icons/go';
+import Logo from '../img/logos/another-1.png';
+import Navbar from '../Components/Navbar';
 
 const Search = () => {
   return (
-    <div className="search">
-      <h2 className="heading__primary mb-1">SEARCH PAGE!</h2>
-      <div>
-        <input
-          className="search__input mb-2"
-          type="text"
-          name="search"
-          placeholder="Yeezy Red October 2019"
-        />
-        <button className="button button--search">
-          Search <AiOutlineSearch />
-        </button>
+    <>
+      <Navbar />
+      <div className="search">
+        <img className="search__logo mb-3" src={Logo} alt="logo" />
+        <div>
+          <GoSearch />
+          <input className="search__input mb-2" type="text" name="search" placeholder="Search..." />
+        </div>
       </div>
-      <Link to="/">
-        <button className="button">Return</button>
-      </Link>
-    </div>
+    </>
   );
 };
 
