@@ -5,10 +5,16 @@
   &__content {
     display: flex;
     align-items: center;
-    width: 600%;
+    width: 650%;
     position: absolute;
     overflow: hidden;
     animation: marquee 45s linear infinite;
+    &:hover {
+      -webkit-animation-play-state: paused;
+      -moz-animation-play-state: paused;
+      -o-animation-play-state: paused;
+      animation-play-state: paused;
+    }
   }
   &__item {
     font-weight: 500;
