@@ -2,11 +2,11 @@ const express = require('express');
 const { auth, requiresAuth } = require('express-openid-connect');
 const router = express.Router();
 
-const { user } = require('../controllers/user');
+const { user, updateUser } = require('../controllers/user');
 const { register, profile } = require('../controllers/auth');
 
 // user routes
-router.get('/user/:id', user);
+router.put('/update-user/:id', updateUser);
 router.get('/', register)
 router.get('/profile', requiresAuth(), profile)
 
