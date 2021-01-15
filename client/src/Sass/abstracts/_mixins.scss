@@ -7,3 +7,8 @@
   font-size: 1.5rem;
   box-shadow: var(--shadow-card);
 }
+
+@mixin flex-icon {
+  display: flex;
+  align-items: center;
+}
