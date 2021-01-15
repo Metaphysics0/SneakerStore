@@ -1,26 +1,25 @@
 // Search.jsx
-
 .search {
   display: flex;
   flex-direction: column;
+  padding: 3rem;
+  margin: 0 auto;
+  border-radius: 20px;
+  align-items: center;
   &__input {
-    padding: 1rem 1.75rem;
-    border-radius: 15px;
+    font-family: 'Signika';
+    padding: 1.25rem 2rem;
+    border-radius: 5px;
     margin-right: 1rem;
     outline: none;
-    border: 1px solid grey;
-    color: darkslategrey;
+    border: none;
+    color: #2f4f4f;
     font-size: 2rem;
-    width: 32.75rem;
+    width: 45rem;
     font-weight: 300;
-    font-style: italic;
     transition: all 0.5s ease;
-    &:hover {
-      width: 34rem;
-    }
-    &:active,
-    &:focus {
-      width: 34.5rem;
-    }
+  }
+  &__logo {
+    width: 55rem;
   }
 }
