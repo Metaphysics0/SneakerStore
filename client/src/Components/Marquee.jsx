@@ -24,7 +24,7 @@ const Marquee = () => {
         {sneakers.results ? (
           sneakers.results.map((item) => (
             <span key={item.id} className="marquee__item">
-              {item.brand} - {item.name} &nbsp;
+              {item.title} &nbsp;
               <span className="price">${item.retailPrice}</span>
             </span>
           ))

@@ -1,0 +1,48 @@
+.shoe {
+  display: grid;
+  grid-template-columns: repeat(4, 30rem);
+  justify-content: center;
+  gap: 2rem;
+  &__content {
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    line-height: 2.4rem;
+    background-color: #fff;
+    border: 3px solid #a9a9a9;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-smooth);
+      cursor: pointer;
+    }
+  }
+  &__img {
+    width: 20rem;
+    height: 15rem;
+    object-fit: contain;
+    align-self: center;
+  }
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  &__price {
+    font-size: 1.5rem;
+    font-weight: 500;
+    & span {
+      color: green;
+      font-weight: 700;
+    }
+  }
+  &__date {
+    text-align: center;
+    font-weight: 300;
+    font-style: italic;
+  }
+  &__sellar {
+    @include flex-icon;
+  }
+}
