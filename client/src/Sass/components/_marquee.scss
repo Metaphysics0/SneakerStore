@@ -3,11 +3,13 @@
   @include top-nav;
   position: relative;
   &__content {
+    // height: 100%;
+    margin-top: 0.5rem;
     display: flex;
     align-items: center;
     width: 650%;
     position: absolute;
-    overflow: hidden;
+    // overflow: hidden;
     animation: marquee 45s linear infinite;
     &:hover {
       -webkit-animation-play-state: paused;

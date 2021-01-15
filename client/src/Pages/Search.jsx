@@ -1,9 +1,7 @@
 import React from 'react';
 import { shoe } from './mockData';
-// import { Link } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 import Logo from '../img/logos/another-1.png';
-import Navbar from '../Components/Navbar';
 
 const Search = () => {
   const star = () => <AiFillStar className="gold" />;
@@ -11,7 +9,6 @@ const Search = () => {
 
   return (
     <>
-      <Navbar />
       <div className="search">
         <img className="search__logo mb-3" src={Logo} alt="logo" />
         <input className="search__input mb-2" type="text" name="search" placeholder="Search..." />

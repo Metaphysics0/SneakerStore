@@ -1,12 +1,10 @@
 import React from 'react';
-import Marquee from '../Components/Marquee';
 import { Link } from 'react-router-dom';
 import Logo from '../img/logos/BLACK.gif';
 
 const Home = () => {
   return (
     <>
-      <Marquee />
       <div className="home">
         <img className="home__logo" src={Logo} alt="Logo" />
         <Link to="/search">
