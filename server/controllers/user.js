@@ -1,5 +1,7 @@
 const User = require('../models/User');
 const lodash = require('lodash')
+const bcrypt = require('bcrypt');
+
 
 // Get current user profile
 exports.user = async (req, res) => {
@@ -11,6 +13,9 @@ exports.user = async (req, res) => {
   }
 };
 
+
+
+// Updating users, deleting etc..
 exports.updateUser = async (req, res) => {
   let id = req.params.id
   const salt = await bcrypt.genSalt(10)
