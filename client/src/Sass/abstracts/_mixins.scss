@@ -11,3 +11,8 @@
   display: flex;
   align-items: center;
 }
+
+@mixin clamp {
+  width: calc(100% - 4rem);
+  margin: auto;
+}

@@ -2,8 +2,8 @@ import React from 'react';
 
 const MySneakers = () => {
   return (
-    <div>
-      <h1>POOP</h1>
+    <div className="my-sneakers">
+      <h1 className="heading__impact">My Sneakers</h1>
     </div>
   );
 };

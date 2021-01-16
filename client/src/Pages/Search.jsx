@@ -1,7 +1,9 @@
 import React from 'react';
 import { shoe } from './mockData';
 import { AiFillStar } from 'react-icons/ai';
+import { FaRegHeart } from 'react-icons/fa';
 import Logo from '../img/logos/another-1.png';
+import { Link } from 'react-router-dom';
 
 const Search = () => {
   const star = () => <AiFillStar className="gold" />;
@@ -30,6 +32,12 @@ const Search = () => {
             </p>
             <p className="shoe__views mb-1">Views: {shoe.views}</p>
             <p className="shoe__date">Date Listed: {shoe.dateListed}</p>
+            <div className="space-between clamp-1">
+              <Link to="/product/123">
+                <button className="shoe__btn">View</button>
+              </Link>
+              <FaRegHeart className="shoe__icon" />
+            </div>
           </div>
         </div>
 
@@ -52,6 +60,12 @@ const Search = () => {
             </p>
             <p className="shoe__views mb-1">Views: {shoe.views}</p>
             <p className="shoe__date">Date Listed: {shoe.dateListed}</p>
+            <div className="space-between clamp-1">
+              <Link to="/product/123">
+                <button className="shoe__btn">View</button>
+              </Link>
+              <FaRegHeart className="shoe__icon" />
+            </div>
           </div>
         </div>
 
@@ -69,6 +83,12 @@ const Search = () => {
             </p>
             <p className="shoe__views mb-1">Views: {shoe.views}</p>
             <p className="shoe__date">Date Listed: {shoe.dateListed}</p>
+            <div className="space-between clamp-1">
+              <Link to="/product/123">
+                <button className="shoe__btn">View</button>
+              </Link>
+              <FaRegHeart className="shoe__icon" />
+            </div>
           </div>
         </div>
 
@@ -86,6 +106,12 @@ const Search = () => {
             </p>
             <p className="shoe__views mb-1">Views: {shoe.views}</p>
             <p className="shoe__date">Date Listed: {shoe.dateListed}</p>
+            <div className="space-between clamp-1">
+              <Link to="/product/123">
+                <button className="shoe__btn">View</button>
+              </Link>
+              <FaRegHeart className="shoe__icon" />
+            </div>
           </div>
         </div>
       </div>

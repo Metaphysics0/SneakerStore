@@ -1,8 +1,9 @@
 // Navbar.jsx
 .nav {
-  // @include top-nav;
   display: flex;
   justify-content: flex-end;
+  width: calc(100% - 10rem);
+  margin: auto;
   &__link {
     font-weight: 600;
     color: #fff;
@@ -11,9 +12,6 @@
     text-transform: uppercase;
     width: fit-content;
     transition: all 0.3s;
-    &:nth-child(4) {
-      margin-right: 8rem;
-    }
     &:hover {
       color: red;
     }
@@ -23,4 +21,11 @@
       border-bottom: 2px solid red;
     }
   }
+  &--full {
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  width: 20rem;
 }

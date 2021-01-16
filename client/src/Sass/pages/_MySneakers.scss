@@ -1,0 +1,7 @@
+// MySneakers.jsx
+.my-sneakers {
+  padding: 2rem;
+  background: red;
+  border: 1px solid green;
+  @include clamp;
+}

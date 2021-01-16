@@ -4,9 +4,11 @@ import Marquee from '../Components/Marquee';
 import Home from '../Pages/Home';
 import Profile from '../Pages/Profile';
 import Search from '../Pages/Search';
-import Settings from '../Pages/Settings';
+import Sell from '../Pages/Sell';
 import MySneakers from '../Pages/MySneakers';
 import Navbar from '../Components/Navbar';
+import SneakerPage from '../Pages/SneakerPage';
+import NavbarMin from '../Components/NavbarMin';
 
 const Main = () => {
   return (
@@ -17,7 +19,7 @@ const Main = () => {
           <Home />
         </Route>
         <Route path="/search">
-          <Navbar />
+          <NavbarMin />
           <Search />
         </Route>
         <Route path="/profile">
@@ -28,9 +30,13 @@ const Main = () => {
           <Navbar />
           <MySneakers />
         </Route>
-        <Route path="/settings">
+        <Route path="/sell">
           <Navbar />
-          <Settings />
+          <Sell />
+        </Route>
+        <Route path="/product/:id">
+          <Navbar />
+          <SneakerPage />
         </Route>
       </Switch>
     </Router>
