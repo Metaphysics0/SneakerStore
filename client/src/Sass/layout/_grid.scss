@@ -1,8 +1,18 @@
 .shoe {
   display: grid;
-  grid-template-columns: repeat(4, 30rem);
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   gap: 2rem;
+  @include clamp;
+  @media only screen and (max-width: $bp-largest) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media only screen and (max-width: $bp-smallest) {
+    grid-template-columns: repeat(1, 1fr);
+  }
   &__content {
     font-size: 1.25rem;
     display: flex;
@@ -15,7 +25,6 @@
     &:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-smooth);
-      cursor: pointer;
     }
   }
   &__img {
@@ -37,12 +46,36 @@
       font-weight: 700;
     }
   }
+  &__sellar {
+    @include flex-icon;
+  }
   &__date {
+    font-size: 1.25rem;
     text-align: center;
     font-weight: 300;
     font-style: italic;
+    margin-bottom: 1rem;
   }
-  &__sellar {
-    @include flex-icon;
+  &__btn {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: 2px solid red;
+    background-color: var(--impact-light-pink);
+    text-transform: uppercase;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s;
+    &:hover {
+      cursor: pointer;
+      background-color: #ff6c8e;
+    }
+  }
+  &__icon {
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      color: red;
+    }
   }
 }
