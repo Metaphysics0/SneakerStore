@@ -16,9 +16,6 @@ const Main = () => {
       <Marquee />
       <Switch>
         <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/search">
           <NavbarMin />
           <Search />
         </Route>
