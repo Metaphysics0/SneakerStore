@@ -1,26 +1,20 @@
 import './Sass/main.scss';
 import Main from './Routes/Main';
-import { useEffect, useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import Home from './Pages/Home';
 
 function App() {
-  const [profile, setProfile] = useState();
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
-  useEffect(() => {
-    const getProfile = async () => {
-      try {
-        const response = await fetch('http:/localhost:3000/api/profile');
-        const data = await response.json();
-        console.log('PROFILE: ', data);
-        return data;
-      } catch (e) {
-        console.error(e);
-      }
-    };
-    getProfile();
-  }, []);
+  // Loading is required to fetch 'user' object
+  if (isLoading) {
+    console.log('USER: ', user);
+    return <h1>Loading!!!</h1>;
+  }
 
-  return <>{profile ? <Main /> : <Home setProfile={setProfile} />}</>;
+  // If user is signed in, display Main.
+  // Otherwise, display the Home page
+  return isAuthenticated ? <Main /> : <Home />;
 }
 
 export default App;

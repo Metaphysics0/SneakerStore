@@ -1,21 +1,18 @@
 import React from 'react';
 import Marquee from '../Components/Marquee';
+import { useAuth0 } from '@auth0/auth0-react';
 
 import Logo from '../img/logos/BLACK.gif';
 
-const Home = ({ setProfile }) => {
+const Home = () => {
+  const { loginWithRedirect } = useAuth0();
+
   return (
     <>
       <Marquee />
       <div className="home">
         <img className="home__logo" src={Logo} alt="Logo" />
-        <button
-          className="button"
-          onClick={(e) => {
-            e.preventDefault();
-            window.location.href = 'http://localhost:3000/login';
-          }}
-        >
+        <button className="button" onClick={() => loginWithRedirect()}>
           Enter
         </button>
       </div>

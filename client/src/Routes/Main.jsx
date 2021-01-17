@@ -9,10 +9,19 @@ import MySneakers from '../Pages/MySneakers';
 import Navbar from '../Components/Navbar';
 import SneakerPage from '../Pages/SneakerPage';
 import NavbarMin from '../Components/NavbarMin';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Main = () => {
+  // we will pass the 'user' object as a prop throughout the app
+  const { user, isAuthenticated, isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <h1>Loading!!!</h1>;
+  }
+
   return (
     <Router>
+      {console.log('USER: ', user)}
       <Marquee />
       <Switch>
         <Route exact path="/">

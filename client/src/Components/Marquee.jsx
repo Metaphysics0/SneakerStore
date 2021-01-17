@@ -9,7 +9,6 @@ const Marquee = () => {
       try {
         const response = await fetch(SNEAKER_URL);
         const data = await response.json();
-        console.log(data);
         return setSneakers(data);
       } catch (e) {
         console.error(e);

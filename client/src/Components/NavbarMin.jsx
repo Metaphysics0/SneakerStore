@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 const NavbarMin = () => {
   return (
     <nav className="nav">
-      <NavLink className="nav__link" activeClassName="nav__link nav__link--active" to="/search">
+      <NavLink className="nav__link" activeClassName="nav__link nav__link--active" to="/">
         Search
       </NavLink>
       <NavLink className="nav__link" activeClassName="nav__link nav__link--active" to="/mysneakers">
