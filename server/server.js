@@ -7,8 +7,16 @@ require('dotenv').config();
 const app = express();
 const { auth } = require('express-openid-connect');
 
+const corsConfig = {
+  credentials: true,
+  origin: true,
+};
+app.use(cors(corsConfig));
+
 //import routes
 const routes = require('./routes/routes');
+
+// Cors fix
 
 // db
 mongoose
@@ -33,11 +41,10 @@ app.use(
 );
 
 //middlewares
-app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 
 //routes
 app.use('/api', routes);
