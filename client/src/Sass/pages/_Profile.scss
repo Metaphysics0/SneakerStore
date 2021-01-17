@@ -1,0 +1,49 @@
+// Profile.jsx
+.profile {
+  display: grid;
+  padding: 2rem;
+  height: 100vh;
+  grid-template-columns: 1fr 2.75fr;
+  grid-template-rows: 1fr 1.75fr;
+  grid-template-areas:
+    'left top'
+    'left bottom';
+  gap: 1rem;
+  // Grid definition
+  &__left {
+    padding: 1.25rem 0.75rem;
+    grid-area: left;
+    background: coral;
+  }
+  &__top {
+    padding: 1rem;
+    grid-area: top;
+    background-color: rgb(200, 240, 255);
+  }
+  &__bottom {
+    grid-area: bottom;
+    background-color: slateblue;
+  }
+
+  // Grid Top
+  &__heading {
+    text-transform: uppercase;
+    font-size: 5rem;
+  }
+  &__rating {
+    font-size: 2.75rem;
+  }
+
+  // Left
+  &__subheading {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  &__img {
+    display: inherit;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-smooth-light);
+  }
+}
