@@ -40,7 +40,7 @@ app.use(bodyParser.json());
 
 
 //routes
-app.use('/api', routes);
+app.use('/api',routes);
 
 // server
 const port = process.env.PORT || 3000;
