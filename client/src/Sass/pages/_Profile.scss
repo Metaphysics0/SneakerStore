@@ -9,6 +9,10 @@
     'left top'
     'left bottom';
   gap: 1rem;
+  @media screen and (max-width: $bp-large) {
+    gap: 0.25rem;
+    padding: 0;
+  }
   // Grid definition
   &__left {
     padding: 1.25rem 0.75rem;
@@ -30,12 +34,20 @@
   &__heading {
     text-transform: uppercase;
     font-size: 5rem;
-  }
-  &__rating {
-    font-size: 2.75rem;
+    font-weight: 900;
   }
   &__name {
     font-size: 3.25rem;
+  }
+  &__rating {
+    font-size: 2.5rem;
+  }
+  &__sales {
+    font-size: 2.5rem;
+    span {
+      color: green;
+      font-weight: 700;
+    }
   }
   &__logout {
     padding: 0.5rem 0.75rem;
@@ -70,12 +82,14 @@
   &__img {
     display: inherit;
     border-radius: 10px;
+    width: 20rem;
     margin: auto;
     margin-bottom: 1.25rem;
     box-shadow: var(--shadow-smooth-light);
   }
   // Bottom
   &__navlink {
+    padding-bottom: 0.25rem;
     text-transform: uppercase;
     margin: 0 1.25rem;
     font-size: 2rem;
@@ -86,7 +100,7 @@
     }
     &--active {
       color: #d30000;
-      border-bottom: 2px solid red;
+      border-bottom: 3px solid red;
     }
   }
 }

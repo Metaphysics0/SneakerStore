@@ -13,7 +13,14 @@
     letter-spacing: 1px;
     text-decoration: underline;
     align-self: flex-start;
-    // text-shadow: -1px -1px 0 rgb(255, 0, 255), 1px -1px 0 rgb(255, 0, 255),
-    //   -1px 1px 0 rgb(255, 0, 255), 1px 1px 0 rgb(255, 0, 255);
+  }
+  &__impact-2 {
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 4rem;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    align-self: flex-start;
   }
 }

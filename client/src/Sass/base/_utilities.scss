@@ -15,6 +15,22 @@
   flex-direction: column;
   justify-content: space-around;
 }
+.flex-col-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: fit-content;
+  height: 70%;
+  @media only screen and (max-height: 800px) {
+    height: 60%;
+  }
+}
+.flex-center {
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
 .space-between {
   display: flex;
   justify-content: space-between;
@@ -23,6 +39,10 @@
 .clamp-1 {
   width: calc(100% - 3rem);
   margin: auto;
+}
+.icon {
+  display: flex;
+  align-items: center;
 }
 .gold {
   color: #ffd700;
@@ -34,4 +54,41 @@
   padding: 2rem;
   border-radius: 0 0 15px 15px;
   background: #f4f4f4;
+}
+
+// Label image overlay
+.label-center {
+  display: inherit;
+  width: fit-content;
+  margin: 0 auto;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 20rem;
+  border-radius: 10px;
+  margin: auto;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: rgba(0, 0, 0, 0.625);
+  &-text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+.label-center:hover .overlay {
+  opacity: 1;
+  cursor: pointer;
 }
