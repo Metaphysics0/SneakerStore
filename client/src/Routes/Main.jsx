@@ -21,7 +21,6 @@ const Main = () => {
 
   return (
     <Router>
-      {console.log('USER: ', user)}
       <Marquee />
       <Switch>
         <Route exact path="/">
@@ -30,7 +29,7 @@ const Main = () => {
         </Route>
         <Route path="/profile">
           <Navbar />
-          <Profile />
+          <Profile user={user} />
         </Route>
         <Route path="/mysneakers">
           <Navbar />

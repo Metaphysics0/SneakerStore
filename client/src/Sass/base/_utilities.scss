@@ -10,14 +10,19 @@
 .flex {
   display: flex;
 }
-.clamp-1 {
-  width: calc(100% - 3rem);
-  margin: auto;
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .space-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.clamp-1 {
+  width: calc(100% - 3rem);
+  margin: auto;
 }
 .gold {
   color: #ffd700;

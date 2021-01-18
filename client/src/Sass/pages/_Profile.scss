@@ -16,22 +16,50 @@
     background: coral;
   }
   &__top {
-    padding: 1rem;
+    padding: 1rem 2rem;
     grid-area: top;
     background-color: rgb(200, 240, 255);
   }
   &__bottom {
+    padding: 1rem;
     grid-area: bottom;
-    background-color: slateblue;
+    background-color: rgb(205, 197, 255);
   }
 
-  // Grid Top
+  // Top Section
   &__heading {
     text-transform: uppercase;
     font-size: 5rem;
   }
   &__rating {
     font-size: 2.75rem;
+  }
+  &__name {
+    font-size: 3.25rem;
+  }
+  &__logout {
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    background-color: #ff5f5f;
+    text-transform: uppercase;
+    outline: none;
+    border: 2px solid rgb(159, 0, 0);
+    font-size: 1.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-smooth);
+    }
+    &:active {
+      transform: translateY(2px);
+      box-shadow: var(--shadow-smooth-light);
+    }
+  }
+  &__active {
+    font-style: italic;
+    font-weight: 300;
   }
 
   // Left
@@ -45,5 +73,20 @@
     margin: auto;
     margin-bottom: 1.25rem;
     box-shadow: var(--shadow-smooth-light);
+  }
+  // Bottom
+  &__navlink {
+    text-transform: uppercase;
+    margin: 0 1.25rem;
+    font-size: 2rem;
+    font-weight: 700;
+    transition: color 0.3s;
+    &:hover {
+      color: #ff2626;
+    }
+    &--active {
+      color: #d30000;
+      border-bottom: 2px solid red;
+    }
   }
 }
