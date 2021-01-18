@@ -1,13 +1,19 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { shoe } from './mockData';
 import { AiFillStar } from 'react-icons/ai';
 import { FaRegHeart } from 'react-icons/fa';
 import Logo from '../img/logos/another-1.png';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Search = () => {
   const star = () => <AiFillStar className="gold" />;
   const rating = (num) => [...Array(num)].map(star);
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/profile")
+        .then(response => console.log(response.data))
+  },[])
 
   return (
     <>
