@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="nav nav--full">
       <img src={Logo} alt="Logo" className="logo" />
       <div>
-        <NavLink className="nav__link" activeClassName="nav__link nav__link--active" to="/search">
+        <NavLink className="nav__link" activeClassName="nav__link nav__link--active" to="/">
           Search
         </NavLink>
         <NavLink
