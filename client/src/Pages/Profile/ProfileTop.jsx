@@ -1,8 +1,9 @@
 import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { useAuth0 } from '@auth0/auth0-react';
+import { Link } from 'react-router-dom';
 
-const ProfileTop = () => {
+const ProfileTop = ({ user }) => {
   const { logout } = useAuth0();
   return (
     <section className="profile__top">
@@ -16,7 +17,12 @@ const ProfileTop = () => {
         </button>
       </div>
       <div className="flex-col-1">
-        <h3 className="profile__name">Name: Ryan Roberts</h3>
+        <h3 className="profile__name">
+          Account:&nbsp;
+          <Link title="I love you ❤️" to="/profile">
+            {user.email}
+          </Link>
+        </h3>
         <h3 className="profile__rating">
           Rating: <AiFillStar />
           <AiFillStar />

@@ -17,20 +17,21 @@
   &__left {
     padding: 1.5rem 0.75rem;
     grid-area: left;
-    background: rgb(255, 153, 117);
-    box-shadow: var(--shadow-dreamy);
+    // background: rgb(255, 153, 117);
+    background: #b3b36e;
+    border-radius: 15px 0 0 15px;
   }
   &__top {
     padding: 1rem 2rem;
     grid-area: top;
     background-color: rgb(214, 244, 255);
-    box-shadow: var(--shadow-dreamy);
+    border-top-right-radius: 15px;
   }
   &__bottom {
     padding: 1rem;
     grid-area: bottom;
     background-color: rgb(217, 211, 255);
-    box-shadow: var(--shadow-dreamy);
+    border-bottom-right-radius: 15px;
   }
 
   // Top Section
@@ -40,10 +41,18 @@
     font-weight: 900;
   }
   &__name {
-    font-size: 3.25rem;
+    font-size: 3rem;
+    a {
+      color: #0000ee;
+      text-decoration: underline;
+      transition: color 0.3s;
+      &:hover {
+        color: #5131c7;
+      }
+    }
   }
   &__rating {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
   &__sales {
     font-size: 2.5rem;
@@ -80,6 +89,7 @@
   // Left
   &__subheading {
     font-family: 'Montserrat';
+    text-align: center;
     font-size: 3rem;
     text-transform: uppercase;
     text-decoration: underline;

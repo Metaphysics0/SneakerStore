@@ -1,11 +1,10 @@
 // Footer.jsx
 .footer {
   padding: 0 2rem;
-  // background: #556b2f;
   background: #37451e;
   &__top {
     padding: 1.5rem 0 2.5rem 0;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     display: flex;
     justify-content: space-between;
   }
@@ -19,7 +18,6 @@
   }
   &__icons {
     font-size: 2.5rem;
-    // margin-right: 3rem;
     svg {
       margin: 0 1rem;
       color: #bdbdbd;
@@ -45,6 +43,9 @@
     font-weight: 500;
     border-right: 1px solid white;
     transition: all 0.3s;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgb(18, 18, 18);
     &:first-child {
       padding: 0 1rem 0 0;
     }
@@ -57,13 +58,17 @@
   }
   &__copy {
     text-align: center;
+    font-weight: 500;
     font-size: 1.25rem;
+    span {
+      color: #fff;
+    }
   }
   &__closer {
     color: rgb(164, 164, 164);
     padding-bottom: 1rem;
     text-align: right;
     width: 30rem;
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
 }

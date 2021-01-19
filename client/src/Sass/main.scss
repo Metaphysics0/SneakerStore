@@ -11,9 +11,9 @@
 
 @import './components/button';
 @import './components/marquee';
-@import './components/navbar';
-@import './components/footer';
 
+@import './layout/navbar';
+@import './layout/footer';
 @import './layout/grid';
 
 @import './pages/Home';

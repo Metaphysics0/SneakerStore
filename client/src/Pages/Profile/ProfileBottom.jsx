@@ -9,7 +9,7 @@ import Settings from '../../Components/Settings';
 const ProfileBottom = () => {
   return (
     <section className="profile__bottom">
-      <div className="flex-center mb-2">
+      <div className="flex-center-1 pb-2 clamp-5 mb-2">
         <NavLink
           to="/profile/sales"
           className="profile__navlink icon"
