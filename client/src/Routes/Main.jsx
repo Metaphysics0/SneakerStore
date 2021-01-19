@@ -10,6 +10,7 @@ import Navbar from '../Components/Navbar';
 import SneakerPage from '../Pages/SneakerPage';
 import NavbarMin from '../Components/NavbarMin';
 import { useAuth0 } from '@auth0/auth0-react';
+import Footer from '../Components/Footer';
 
 const Main = () => {
   // we will pass the 'user' object as a prop throughout the app
@@ -26,22 +27,27 @@ const Main = () => {
         <Route exact path="/">
           <NavbarMin />
           <Search />
+          <Footer />
         </Route>
         <Route path="/profile">
           <Navbar />
           <Profile user={user} />
+          <Footer />
         </Route>
         <Route path="/mysneakers">
           <Navbar />
           <MySneakers />
+          <Footer />
         </Route>
         <Route path="/sell">
           <Navbar />
           <Sell />
+          <Footer />
         </Route>
         <Route path="/product/:id">
           <Navbar />
           <SneakerPage />
+          <Footer />
         </Route>
       </Switch>
     </Router>

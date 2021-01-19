@@ -13,6 +13,7 @@
   @media only screen and (max-width: $bp-smallest) {
     grid-template-columns: repeat(1, 1fr);
   }
+  margin-bottom: 5rem;
   &__content {
     font-size: 1.25rem;
     display: flex;

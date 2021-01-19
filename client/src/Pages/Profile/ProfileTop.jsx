@@ -21,7 +21,7 @@ const ProfileTop = () => {
           Rating: <AiFillStar />
           <AiFillStar />
           <AiFillStar />
-          <AiFillStar />{' '}
+          <AiFillStar /> (4.75)
         </h3>
         <h3 className="profile__sales">
           Total Sales: <span>3</span>
