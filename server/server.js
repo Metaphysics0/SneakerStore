@@ -5,7 +5,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const app = express();
-const { auth } = require('express-openid-connect');
 
 const corsConfig = {
   credentials: true,
@@ -15,8 +14,7 @@ app.use(cors(corsConfig));
 
 //import routes
 const routes = require('./routes/routes');
-
-// Cors fix
+const { db } = require('./models/User');
 
 // db
 mongoose
@@ -28,29 +26,16 @@ mongoose
   })
   .then(() => console.log('DB Connected'));
 
-//auth0
-app.use(
-  auth({
-    issuerBaseURL: process.env.ISSUER_BASE_URL,
-    baseURL: process.env.BASE_URL,
-    clientID: process.env.CLIENT_ID,
-    secret: process.env.SECRET,
-    authRequired: false,
-    auth0Logout: true,
-  })
-);
-
-//middlewares
-
+// middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//routes
+// Routes middleware
 app.use('/api', routes);
 
 // server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
