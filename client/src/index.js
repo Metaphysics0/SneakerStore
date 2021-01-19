@@ -6,8 +6,8 @@ import { Auth0Provider } from '@auth0/auth0-react';
 // The Auth0Provider holds all the information of the current signed in user
 ReactDOM.render(
   <Auth0Provider
-    domain={'dev-gv2cro59.us.auth0.com'}
-    clientId={'anxjqZPTGG4kBmdVG1l2jY0rWYDXK9MX'}
+    domain={process.env.REACT_APP_AUTH0_DOMAIN}
+    clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
     redirectUri={window.location.origin}
   >
     <App />

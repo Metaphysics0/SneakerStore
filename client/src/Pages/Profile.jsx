@@ -1,16 +1,15 @@
 import React from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
+import ProfileLeft from './Profile/ProfileLeft';
+import ProfileTop from './Profile/ProfileTop';
+import ProfileBottom from './Profile/ProfileBottom';
 
-const Profile = () => {
-  const { logout } = useAuth0();
-
+const Profile = ({ user }) => {
   return (
-    <button
-      className="profile__logout"
-      onClick={() => logout({ returnTo: window.location.origin })}
-    >
-      Log Out
-    </button>
+    <div className="profile">
+      <ProfileLeft user={user} />
+      <ProfileTop user={user} />
+      <ProfileBottom user={user} />
+    </div>
   );
 };
 
