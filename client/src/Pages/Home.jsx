@@ -1,18 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Marquee from '../Components/Marquee';
-import { useAuth0 } from '@auth0/auth0-react';
-
+import SignUpModal from '../Components/Modals/SignUpModal';
 import Logo from '../img/logos/BLACK.gif';
 
 const Home = () => {
-  const { loginWithRedirect } = useAuth0();
-
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function toggleModal() {
+    setIsOpen(!modalIsOpen);
+  }
   return (
     <>
-      <Marquee />
+      {/* <Marquee /> */}
       <div className="home">
         <img className="home__logo" src={Logo} alt="Logo" />
-        <button className="button" onClick={() => loginWithRedirect()}>
+        <button className="button" onClick={toggleModal}>
           Enter
         </button>
       </div>
@@ -20,6 +21,7 @@ const Home = () => {
         Would you believe in what you believe in if you were the only one who believed it?
         <br /> - Kanye West
       </h3>
+      <SignUpModal modalIsOpen={modalIsOpen} toggleModal={toggleModal} />
     </>
   );
 };

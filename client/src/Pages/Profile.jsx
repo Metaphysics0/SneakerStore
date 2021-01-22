@@ -3,12 +3,12 @@ import ProfileLeft from './Profile/ProfileLeft';
 import ProfileTop from './Profile/ProfileTop';
 import ProfileBottom from './Profile/ProfileBottom';
 
-const Profile = ({ user }) => {
+const Profile = () => {
   return (
     <div className="profile">
-      <ProfileLeft user={user} />
-      <ProfileTop user={user} />
-      <ProfileBottom user={user} />
+      <ProfileLeft />
+      <ProfileTop />
+      <ProfileBottom />
     </div>
   );
 };

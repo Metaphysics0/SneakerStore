@@ -1,41 +1,27 @@
-// Import npm packages
+require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
+require('./database/mongodb');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-require('dotenv').config();
+const cookieParser = require('cookie-parser');
 const app = express();
 
-const corsConfig = {
-  credentials: true,
-  origin: true,
-};
-app.use(cors(corsConfig));
-
-//import routes
-const routes = require('./routes/routes');
-const { db } = require('./models/User');
-
-// db
-mongoose
-  .connect(process.env.MONGODB_URI || process.env.DATABASE, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
+// Middlewares
+app.use(
+  cors({
+    origin: true,
+    //origin: "http://localhost:3000", //  Need to change once we deploy the app
+    credentials: true,
   })
-  .then(() => console.log('DB Connected'));
-
-// middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+);
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
-// Routes middleware
-app.use('/api', routes);
+app.use('/api/users', require('./routes/routes'));
 
 // server
-const port = process.env.PORT || 5000;
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

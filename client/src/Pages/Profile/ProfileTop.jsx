@@ -1,18 +1,13 @@
 import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
-import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 
-const ProfileTop = ({ user }) => {
-  const { logout } = useAuth0();
+const ProfileTop = () => {
   return (
     <section className="profile__top">
       <div className="space-between">
         <h2 className="heading__impact-2 mb-2">Profile Page</h2>
-        <button
-          className="profile__logout"
-          onClick={() => logout({ returnTo: window.location.origin })}
-        >
+        <button className="profile__logout" onClick={() => console.log('PENIS!')}>
           Log Out
         </button>
       </div>
@@ -20,7 +15,7 @@ const ProfileTop = ({ user }) => {
         <h3 className="profile__name">
           Account:&nbsp;
           <Link title="I love you ❤️" to="/profile">
-            {user.email}
+            ryan.roberts@gmail.com
           </Link>
         </h3>
         <h3 className="profile__rating">
