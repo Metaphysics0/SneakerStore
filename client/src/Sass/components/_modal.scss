@@ -1,12 +1,12 @@
 .modal {
   position: absolute;
   top: 30%;
-  left: 32.5%;
+  left: 27.5%;
   right: auto;
   bottom: auto;
   margin: auto;
-  height: 35rem;
-  width: 65rem;
+  height: 37.25rem;
+  max-width: 75rem;
   font-size: 1.5rem;
   background-color: #ffffffe9;
   border-radius: 10px;
@@ -38,7 +38,6 @@
     display: flex;
     flex-direction: column;
     color: #fff;
-    // justify-content: center;
     align-items: center;
     padding: 3rem;
     border-radius: 0 15px 15px 0;
@@ -48,37 +47,48 @@
 
 .right {
   &__heading {
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     margin-bottom: 3rem;
     font-weight: 700;
   }
   &__text {
+    font-size: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
+  }
+  &__list {
+    align-self: flex-start;
+    li {
+      margin-bottom: 1rem;
+    }
   }
 }
 
 // Inputs!
 .input-wrap {
   width: 90%;
-  margin: 0 auto 1.25rem auto;
+  margin: 0 auto 1.5rem auto;
   &__icon {
     color: #194b74;
     font-size: 2rem;
     position: absolute;
-    margin: 1rem;
+    margin: 1.25rem;
   }
   &__input {
     font-family: 'Comfortaa';
     text-align: center;
     font-size: 1.5rem;
     border-radius: 20px;
-    padding: 1rem;
+    padding: 1.25rem;
     outline: none;
     border: 3px solid #50b1fe;
     width: 100%;
     transition: all 0.3s;
     &:focus {
       box-shadow: var(--shadow-blue);
+    }
+    &--alt {
+      border: 3px solid palevioletred;
     }
   }
 }

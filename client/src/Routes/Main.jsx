@@ -11,6 +11,7 @@ import SneakerPage from '../Pages/SneakerPage';
 import NavbarMin from '../Components/NavbarMin';
 import Footer from '../Components/Footer';
 import { AuthProvider } from '../context/AuthContext';
+import SignUp from '../Pages/SignUp';
 
 const Main = () => {
   return (
@@ -20,6 +21,9 @@ const Main = () => {
         <Switch>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
           </Route>
           <Route exact path="/">
             <NavbarMin />

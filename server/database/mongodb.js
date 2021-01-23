@@ -8,4 +8,4 @@ mongoose
     useFindAndModify: false,
   })
   .then(() => console.log('DB Connected 🟢'))
-  .catch((e) => console.log('Error connecting to DB 🔴'));
+  .catch((e) => console.log(`Error connecting to DB 🔴 \n Error: ${e}`));
