@@ -40,4 +40,13 @@ const getUserById = async (id) => {
   }
 };
 
-export { signup, login, logout, getUserById };
+const changeProfile = async (object) => {
+  try {
+    const response = await axios.post(BASE_URL + '/api/users/profilePicture', object)
+    return response;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export { signup, login, logout, getUserById, changeProfile };

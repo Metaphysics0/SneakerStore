@@ -35,6 +35,17 @@ class userMethods {
     console.log(updatedUserDB);
     return updatedUserDB;
   }
+
+  async profilePicture (email , cloudUrl, cloudId) {
+    const updatedUserDB = await User.updateOne(
+      { email : email },
+      { $set:
+       {
+         profilePicture: cloudUrl, 
+       }
+    })
+    return updatedUserDB;
+  }
 }
 
 module.exports = { userMethods };

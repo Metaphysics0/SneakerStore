@@ -1,6 +1,7 @@
 const User = require('../services/userService');
 const { hashPassword, comparePasswords, createToken } = require('../utils/helper');
 const { errors, errorsArray } = require('../utils/error');
+const cloudinary = require('../utils/cloudinary');
 
 const test = async (req, res) => {
   console.log(req.cookies.token);
@@ -87,6 +88,28 @@ const updateUser = async (req, res) => {
   }
 };
 
+const updateProfilePicture = async (req, res) => {
+  let result = await handleCloudUpload(req.file.path);
+  // these are the two things we need to do inside the userDoc
+  // avatar: result.secure_url,
+  // cloudinary_id: result.public_id,
+  let userDoc = await User.profilePictureUpdate(req.body.email, result.secure_url, result.public_id);
+  console.log(userDoc);
+  res.send("in works")
+}
+
+
+//we can maybe put this function in utils/cloudinary
+const handleCloudUpload = async (filePath) => {
+  try {
+    let result = await cloudinary.uploader.upload(filePath);
+    return result;
+  }
+  catch (err) {
+    console.log(err.stack);
+  }
+};
+
 const logoutUser = async (req, res) => {
   res.clearCookie('token');
   res.send('deleted token');
@@ -99,4 +122,5 @@ module.exports = {
   getUserById,
   updateUser,
   logoutUser,
+  updateProfilePicture
 };

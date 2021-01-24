@@ -15,6 +15,9 @@ class user {
   updateProfile = (id, updatedInfo) => {
     return this.db.updateProfile(id, updatedInfo);
   };
+  profilePictureUpdate = (email , cloudUrl, cloudId) => {
+    return this.db.profilePicture(email , cloudUrl, cloudId);
+  }
 }
 
 module.exports = new user();
