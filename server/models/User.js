@@ -1,38 +1,32 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 const Schema = mongoose.Schema;
+
 const userSchema = new Schema(
   {
     email: {
       type: String,
-      required: true, 
-      min: 6, 
-      max: 225
-    },
-    firstName: {
-      type: String,
-      required: true, 
-      min: 6 , 
-      max: 225
-    },
-    lastName: {
-      type: String,
-      required: true, 
-      min: 6 , 
-      max: 225
+      required: [true, 'Email is required'],
+      unique: true,
+      validate: [validator.isEmail, 'Must be a valid email'],
     },
     password: {
       type: String,
-      required: true, 
-      max: 1024, 
-      min: 6
+      required: [true, 'Password is required'],
+      minlength: [6, 'Password must be minimum 6 characters long'],
+    },
+    name: {
+      type: String,
+      required: [true, 'Full name is required'],
+      minlength: [3, 'Full name must be at least 3 characters long'],
+      maxlength: [40, 'Full name cannot be longer than 20 characters'],
     },
     phone: {
-      type: Number,
-      required: true, 
-    },
-    admin: {
-      type: Boolean,
-      default: false,
+      type: String,
+      required: [true, 'Phone number is required'],
+      minlength: [6, 'Phone number must be at least 6 characters long'],
+      maxlength: [20, 'Phone number cannot be longer than 20 characters'],
+      validate: [validator.isMobilePhone, 'Phone number is not valid'],
     },
     savedSneakers: [],
     purchasedSneakers: [],
@@ -43,4 +37,6 @@ const userSchema = new Schema(
     collection: 'users',
   }
 );
-module.exports = mongoose.model('User', userSchema);
+
+const user = (module.exports = mongoose.model('User', userSchema));
+module.exports = user;

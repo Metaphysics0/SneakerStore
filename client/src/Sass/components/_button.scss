@@ -23,7 +23,6 @@
       box-shadow: var(--shadow-smooth-light);
     }
   }
-
   &--search {
     font-weight: 600;
     background-color: var(--impact-pink);
@@ -32,5 +31,11 @@
     font-weight: 600;
     background-color: #00bcd4;
     padding: 1.25rem 2.25rem;
+  }
+  &--calm {
+    text-transform: none;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: 1rem;
   }
 }

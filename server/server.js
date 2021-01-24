@@ -1,56 +1,27 @@
-// Import npm packages
+require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
+require('./database/mongodb');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-require('dotenv').config();
+const cookieParser = require('cookie-parser');
 const app = express();
-const { auth } = require('express-openid-connect');
 
-const corsConfig = {
-  credentials: true,
-  origin: true,
-};
-app.use(cors(corsConfig));
-
-//import routes
-const routes = require('./routes/routes');
-
-// Cors fix
-
-// db
-mongoose
-  .connect(process.env.MONGODB_URI || process.env.DATABASE, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-  })
-  .then(() => console.log('DB Connected'));
-
-//auth0
+// Middlewares
 app.use(
-  auth({
-    issuerBaseURL: process.env.ISSUER_BASE_URL,
-    baseURL: process.env.BASE_URL,
-    clientID: process.env.CLIENT_ID,
-    secret: process.env.SECRET,
-    authRequired: false,
-    auth0Logout: true,
+  cors({
+    // origin: true,
+    origin: 'http://localhost:3000', //  Need to change to 'true' once we deploy the app
+    credentials: true,
   })
 );
-
-//middlewares
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
-//routes
-app.use('/api', routes);
+app.use('/api/users', require('./routes/routes'));
 
 // server
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

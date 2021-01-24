@@ -1,25 +1,39 @@
-import React from 'react';
-import Marquee from '../Components/Marquee';
-import { useAuth0 } from '@auth0/auth0-react';
-
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { BsSearch } from 'react-icons/bs';
+import SignInModal from '../Components/Modals/SignInModal';
 import Logo from '../img/logos/BLACK.gif';
+import { useAuth } from '../context/AuthContext';
 
 const Home = () => {
-  const { loginWithRedirect } = useAuth0();
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function toggleModal() {
+    setIsOpen(!modalIsOpen);
+  }
+
+  const { auth } = useAuth();
 
   return (
     <>
-      <Marquee />
       <div className="home">
         <img className="home__logo" src={Logo} alt="Logo" />
-        <button className="button" onClick={() => loginWithRedirect()}>
-          Enter
-        </button>
+        <div className="btn-wrap">
+          <button className="button button--calm">
+            <BsSearch />
+          </button>
+          <button className="button" onClick={toggleModal}>
+            {auth ? 'Enter' : 'Sign In'}
+          </button>
+          <span className="home__link">
+            New? <Link to="/signup">Create an account</Link>
+          </span>
+        </div>
       </div>
       <h3 className="home__quote">
         Would you believe in what you believe in if you were the only one who believed it?
         <br /> - Kanye West
       </h3>
+      <SignInModal modalIsOpen={modalIsOpen} toggleModal={toggleModal} />
     </>
   );
 };

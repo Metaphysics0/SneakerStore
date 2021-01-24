@@ -1,15 +1,10 @@
 import React from 'react';
 
-const ProfileLeft = ({ user }) => {
+const ProfileLeft = () => {
   return (
     <section className="profile__left">
-      {console.log(user)}
       <label className="label-center">
-        <img
-          className="profile__img"
-          src={user.picture || 'https://i.stack.imgur.com/34AD2.jpg'}
-          alt="img"
-        />
+        <img className="profile__img" src={'https://i.stack.imgur.com/34AD2.jpg'} alt="img" />
         <input type="file" name="photo" id="photo" style={{ display: 'none' }} />
         <div className="overlay">
           <div className="overlay-text">Edit profile picture</div>

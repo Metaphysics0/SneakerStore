@@ -9,48 +9,50 @@ import MySneakers from '../Pages/MySneakers';
 import Navbar from '../Components/Navbar';
 import SneakerPage from '../Pages/SneakerPage';
 import NavbarMin from '../Components/NavbarMin';
-import { useAuth0 } from '@auth0/auth0-react';
 import Footer from '../Components/Footer';
+import SignIn from '../Pages/SignIn';
+import { AuthProvider } from '../context/AuthContext';
 
 const Main = () => {
-  // we will pass the 'user' object as a prop throughout the app
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <h1>Loading!!!</h1>;
-  }
-
   return (
-    <Router>
-      <Marquee />
-      <Switch>
-        <Route exact path="/">
-          <NavbarMin />
-          <Search />
-          <Footer />
-        </Route>
-        <Route path="/profile">
-          <Navbar />
-          <Profile user={user} />
-          <Footer />
-        </Route>
-        <Route path="/mysneakers">
-          <Navbar />
-          <MySneakers />
-          <Footer />
-        </Route>
-        <Route path="/sell">
-          <Navbar />
-          <Sell />
-          <Footer />
-        </Route>
-        <Route path="/product/:id">
-          <Navbar />
-          <SneakerPage />
-          <Footer />
-        </Route>
-      </Switch>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Marquee />
+        <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/signup">
+            <SignIn />
+          </Route>
+          <Route exact path="/">
+            <NavbarMin />
+            <Search />
+            <Footer />
+          </Route>
+          <Route path="/profile">
+            <Navbar />
+            <Profile />
+            <Footer />
+          </Route>
+          <Route path="/mysneakers">
+            <Navbar />
+            <MySneakers />
+            <Footer />
+          </Route>
+          <Route path="/sell">
+            <Navbar />
+            <Sell />
+            <Footer />
+          </Route>
+          <Route path="/product/:id">
+            <Navbar />
+            <SneakerPage />
+            <Footer />
+          </Route>
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 };
 
