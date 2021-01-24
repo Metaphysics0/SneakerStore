@@ -7,7 +7,7 @@ const upload = multer({ storage });
 // const { user, updateUser } = require('../controllers/user');
 const { logoutUser, addUser, loginUser } = require('../controllers/userCtrl');
 const { addSneaker } = require('../controllers/sneaker');
-const { signup, signin } = require('../controllers/auth');
+// const { signup, signin } = require('../controllers/auth');
 
 // auth routes
 // router.post('/signup', signup);
