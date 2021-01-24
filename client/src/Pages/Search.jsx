@@ -14,9 +14,9 @@ const Search = () => {
       <div className="search">
         <img className="search__logo mb-3" src={Logo} alt="logo" />
         <input className="search__input mb-2" type="text" name="search" placeholder="Search..." />
-        <div className="heading__impact mb-3">Featured Products</div>
       </div>
 
+      <div className="heading__impact mb-3 clamp-1">Featured Products</div>
       <div className="shoe">
         <div className="shoe__content">
           <img className="shoe__img mb-2" src={shoe.img} alt="shoe" />
@@ -115,6 +115,7 @@ const Search = () => {
           </div>
         </div>
       </div>
+      <h3 className="heading__impact mb-3 clamp-1">Recent listings</h3>
     </>
   );
 };

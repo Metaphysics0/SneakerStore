@@ -63,6 +63,13 @@
     border-radius: 0 15px 15px 0;
     background: linear-gradient(#5af2fd, #50b1fe);
   }
+  &__bottom-text {
+    font-size: 1.5rem;
+    justify-self: flex-end;
+  }
+  &__sign-up {
+    justify-self: flex-end;
+  }
 }
 
 .right {

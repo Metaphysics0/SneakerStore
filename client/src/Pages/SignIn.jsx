@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CgProfile } from 'react-icons/cg';
 import { HiOutlineMail, HiOutlineKey } from 'react-icons/hi';
-import SuccessModal from '../Components/Modals/SuccessModal';
 import { FiPhone } from 'react-icons/fi';
 import { Si1Password } from 'react-icons/si';
 import { signup } from '../lib/api';
@@ -17,7 +16,6 @@ const SignUp = () => {
 
   // SuccessModal
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [modalInfo, setModalInfo] = useState();
   function toggleModal() {
     setIsOpen(!modalIsOpen);
   }
@@ -28,7 +26,6 @@ const SignUp = () => {
     try {
       const response = await signup(data);
       console.log(response);
-      setModalInfo(data);
       toggleModal();
     } catch (e) {
       console.error('ERROR: ', e);
@@ -111,9 +108,6 @@ const SignUp = () => {
           Create Account
         </button>
       </div>
-      {modalInfo && (
-        <SuccessModal toggleModal={toggleModal} modalIsOpen={modalIsOpen} modalInfo={modalInfo} />
-      )}
     </>
   );
 };

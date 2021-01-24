@@ -34,34 +34,49 @@ const SignUpForm = ({ closeSignUp }) => {
   return (
     <div className="modal__form">
       <h3 className="modal__heading mt-4">Create an account</h3>
+      {errors.name && <p>{errors.name.message}</p>}
       <div className="input-wrap">
         <CgProfile className="input-wrap__icon" />
         <input
-          ref={register}
           className="input-wrap__input input-wrap__input--alt"
           type="text"
           name="name"
           placeholder="Full Name"
+          ref={register({ required: 'You must specify a full name!' })}
         />
       </div>
+      {errors.email && <p>{errors.email.message}</p>}
       <div className="input-wrap">
         <HiOutlineMail className="input-wrap__icon" />
         <input
-          ref={register}
           className="input-wrap__input input-wrap__input--alt"
           type="email"
           name="email"
           placeholder="Email"
+          ref={register({
+            required: 'You must specify an email!',
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: 'Please enter a valid email!',
+            },
+          })}
         />
       </div>
+      {errors.phone && <p>{errors.phone.message}</p>}
       <div className="input-wrap">
         <FiPhone className="input-wrap__icon" />
         <input
-          ref={register}
           className="input-wrap__input input-wrap__input--alt"
           type="tel"
           name="phone"
           placeholder="Phone"
+          ref={register({
+            required: 'You must specify a phone number!',
+            minLength: {
+              value: 6,
+              message: 'Phone must have at least 6 digits!',
+            },
+          })}
         />
       </div>
       {errors.password && <p>{errors.password.message}</p>}
@@ -104,7 +119,9 @@ const SignUpForm = ({ closeSignUp }) => {
       <button onClick={handleSubmit(onSubmit)} type="submit" className="button">
         Create Account
       </button>
-      <button onClick={() => closeSignUp(false)}> Back to SignIn</button>
+      <p className="link mt-3" onClick={() => closeSignUp(false)}>
+        Back to Sign In Page
+      </p>
     </div>
   );
 };

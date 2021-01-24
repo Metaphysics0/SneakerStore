@@ -1,42 +1,19 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-
-import { FaKey, FaUser } from 'react-icons/fa';
-import { useForm } from 'react-hook-form';
-import { Link, useHistory, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { login } from '../../lib/api';
 import { useAuth } from '../../context/AuthContext';
-// import SignUp from '../../Pages/SignIn';
 import SignUpForm from '../SignUpForm';
-import { BsLayoutThreeColumns } from 'react-icons/bs';
 import SignInForm from '../SignInForm';
 Modal.setAppElement('#root');
 
 const SignInModal = ({ toggleModal, modalIsOpen }) => {
-  const { register, handleSubmit } = useForm();
   const [signUpForm, setSignUpForm] = useState(false);
 
-  const history = useHistory();
-  const { dispatch } = useAuth();
   const { auth } = useAuth();
-  console.log("Got here " + JSON.stringify(auth))
+  console.log('Got here ' + JSON.stringify(auth));
 
-  const onSubmit = async (data) => {
-    const response = await login(data);
-    if (!response.error) {
-      dispatch({
-        type: 'LOGIN',
-        payload: response,
-      });
-      history.push('/');
-    } else {
-      console.log(response.error);
-    }
-  };
-
-  //State will be
-  //import SignUp , add on Click inside of SignIn , changing a state
-  //Set singupUpOpen ? signIN : signUp
+  // State will be
+  // import SignUp , add on Click inside of SignIn , changing a state
+  // Set singupUpOpen ? signIN : signUp
 
   return (
     <Modal className="modal" isOpen={modalIsOpen} onRequestClose={toggleModal}>

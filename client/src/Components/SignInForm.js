@@ -54,12 +54,10 @@ const SignInForm = ({ setSignUpForm }) => {
         Log In!
       </button>
       <div className="modal__sign-up">
-        <p className="modal__bottom-text">
-          <button className="button button--impact" onClick={() => setSignUpForm(true)}>
-            Create an Account!
-          </button>
-          {/* <Link to="/signup">Create Account</Link> */}
-        </p>
+        New?&nbsp;
+        <span className="link" onClick={() => setSignUpForm(true)}>
+          Create an Account!
+        </span>
       </div>
     </form>
   );
