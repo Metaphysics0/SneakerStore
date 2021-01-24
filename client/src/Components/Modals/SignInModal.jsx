@@ -7,7 +7,7 @@ import { login } from '../../lib/api';
 import { useAuth } from '../../context/AuthContext';
 Modal.setAppElement('#root');
 
-const SignUpModal = ({ toggleModal, modalIsOpen }) => {
+const SignInModal = ({ toggleModal, modalIsOpen }) => {
   const { register, handleSubmit } = useForm();
 
   const history = useHistory();
@@ -20,7 +20,7 @@ const SignUpModal = ({ toggleModal, modalIsOpen }) => {
         type: 'LOGIN',
         payload: response,
       });
-      history.push('/home');
+      history.push('/');
     } else {
       console.log(response.error);
     }
@@ -73,4 +73,4 @@ const SignUpModal = ({ toggleModal, modalIsOpen }) => {
   );
 };
 
-export default SignUpModal;
+export default SignInModal;

@@ -10,8 +10,8 @@ import Navbar from '../Components/Navbar';
 import SneakerPage from '../Pages/SneakerPage';
 import NavbarMin from '../Components/NavbarMin';
 import Footer from '../Components/Footer';
+import SignIn from '../Pages/SignIn';
 import { AuthProvider } from '../context/AuthContext';
-import SignUp from '../Pages/SignUp';
 
 const Main = () => {
   return (
@@ -23,7 +23,7 @@ const Main = () => {
             <Home />
           </Route>
           <Route path="/signup">
-            <SignUp />
+            <SignIn />
           </Route>
           <Route exact path="/">
             <NavbarMin />

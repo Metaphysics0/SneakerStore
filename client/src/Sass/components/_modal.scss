@@ -23,6 +23,21 @@
     margin-bottom: 2rem;
     display: inline-block;
     text-align: center;
+    &--success {
+      color: #008000;
+    }
+  }
+  &__subheading {
+    text-align: center;
+    line-height: 3rem;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  &__info {
+    font-size: 1.5rem;
+    li {
+      margin: 0.5rem 0;
+    }
   }
   &__form {
     grid-area: left;
@@ -32,6 +47,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    &--success {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
   }
   &__right {
     grid-area: right;
@@ -69,7 +89,8 @@
   width: 90%;
   margin: 0 auto 1.5rem auto;
   &__icon {
-    color: #194b74;
+    color: #7e307e;
+    // color: #194b74;
     font-size: 2rem;
     position: absolute;
     margin: 1.25rem;
@@ -89,6 +110,9 @@
     }
     &--alt {
       border: 3px solid palevioletred;
+      &:focus {
+        box-shadow: var(--shadow-violet);
+      }
     }
   }
 }

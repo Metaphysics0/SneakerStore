@@ -16,10 +16,10 @@ const addUser = async (req, res) => {
     return res.send(errors.emailExist);
   }
   try {
-    const hasedPassword = await hashPassword(NewUser.password);
-    NewUser.password = hasedPassword;
+    const hashedPassword = await hashPassword(NewUser.password);
+    NewUser.password = hashedPassword;
     const addedUser = await User.add(NewUser);
-    res.status(201).send({ id: addedUser._id });
+    res.status(201).json({ id: addedUser._id, success: addedUser });
   } catch (e) {
     return res.send({ error: errorsArray(e) });
   }

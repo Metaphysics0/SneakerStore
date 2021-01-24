@@ -15,31 +15,18 @@ const userSchema = new Schema(
       required: [true, 'Password is required'],
       minlength: [6, 'Password must be minimum 6 characters long'],
     },
-    firstName: {
+    name: {
       type: String,
-      required: [true, 'First name is required'],
-      minlength: [3, 'First name must be at least 3 characters long'],
-      maxlength: [20, 'First name cannot be longer than 20 characters'],
-      validate: [validator.isAlpha, 'First name cannot contain numbers'],
+      required: [true, 'Full name is required'],
+      minlength: [3, 'Full name must be at least 3 characters long'],
+      maxlength: [40, 'Full name cannot be longer than 20 characters'],
     },
-    lastName: {
-      type: String,
-      required: [true, 'Last name is required'],
-      minlength: [3, 'Last name must be at least 3 characters long'],
-      maxlength: [20, 'Last name cannot be longer than 20 characters'],
-      validate: [validator.isAlpha, 'Last name cannot contain numbers'],
-    },
-    phoneNumber: {
+    phone: {
       type: String,
       required: [true, 'Phone number is required'],
       minlength: [6, 'Phone number must be at least 6 characters long'],
       maxlength: [20, 'Phone number cannot be longer than 20 characters'],
       validate: [validator.isMobilePhone, 'Phone number is not valid'],
-    },
-    role: {
-      type: String,
-      required: [true, 'User must have a role'],
-      enum: ['Admin', 'Doctor', 'Parent'],
     },
     savedSneakers: [],
     purchasedSneakers: [],
