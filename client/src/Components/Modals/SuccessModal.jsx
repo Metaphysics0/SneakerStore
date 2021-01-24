@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
 Modal.setAppElement('#root');
 
-const SignUpModal = ({ toggleModal, modalIsOpen, modalInfo }) => {
+const SuccessModal = ({ toggleModal, modalIsOpen, modalInfo }) => {
   return (
     <Modal className="modal" isOpen={modalIsOpen} onRequestClose={toggleModal}>
       <div className="modal__form modal__form--success">
@@ -33,4 +33,4 @@ const SignUpModal = ({ toggleModal, modalIsOpen, modalInfo }) => {
   );
 };
 
-export default SignUpModal;
+export default SuccessModal;
