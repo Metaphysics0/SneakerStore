@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use('/api/users', require('./routes/routes'));
+app.use('/api/users', require('./routes/userRouter'));
 
 // server
 const PORT = process.env.PORT || 5000;

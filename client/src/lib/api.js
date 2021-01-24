@@ -14,6 +14,7 @@ const signup = async (user) => {
 const login = async (user) => {
   try {
     const response = await axios.post(BASE_URL + '/api/users/login', { user });
+    // console.log(response.data)
     return response.data;
   } catch (e) {
     console.log(e);
@@ -32,6 +33,7 @@ const logout = async () => {
 const getUserById = async (id) => {
   try {
     const response = await axios.get(BASE_URL + `/api/users/${id}`);
+    console.log(response.data)
     return response.data;
   } catch (err) {
     console.log(err);

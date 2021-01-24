@@ -18,6 +18,8 @@ const SignInModal = ({ toggleModal, modalIsOpen }) => {
 
   const history = useHistory();
   const { dispatch } = useAuth();
+  const { auth } = useAuth();
+  console.log("Got here " + JSON.stringify(auth))
 
   const onSubmit = async (data) => {
     const response = await login(data);
