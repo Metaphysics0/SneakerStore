@@ -16,8 +16,6 @@ A colaborative effort, created by Yegor Nilov, [Giorgia Borgmann](https://github
 
 
 ## Screenshots
-- Home
 ![home-screen](https://imgur.com/HRytg3Y.png "Home Screen")
 <br />
-- Search
 ![search-page](https://imgur.com/svRjQ9v.png "Search Page")
