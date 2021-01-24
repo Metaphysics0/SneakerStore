@@ -57,12 +57,16 @@ const getUserById = async (req, res) => {
     return res.send(errors.incorrectID);
   }
   const user = {
-    firstName: userDB.firstName,
-    lastName: userDB.lastName,
+    name: userDB.name,
+    savedSneakers: userDB.savedSneakers,
     email: userDB.email,
-    phoneNumber: userDB.phoneNumber,
-    savedJobs: userDB.savedJobs,
-    appliedJobs: userDB.appliedJobs,
+    purchasedSneakers: userDB.sellingSneakers,
+    sellingSneakers: userDB.sellingSneakers,
+    profilePicture: userDB.profilePicture,
+    reviews: userDB.reviews,
+    rating: userDB.rating, 
+    totalSales: userDB.totalSales,
+
   };
   res.json(user);
 };

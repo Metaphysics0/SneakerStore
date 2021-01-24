@@ -5,7 +5,7 @@ const storage = multer.diskStorage({});
 const upload = multer({ storage });
 
 // const { user, updateUser } = require('../controllers/user');
-const { logoutUser, addUser, loginUser } = require('../controllers/userCtrl');
+const { logoutUser, addUser, loginUser , getUserById} = require('../controllers/userCtrl');
 const { addSneaker } = require('../controllers/sneaker');
 // const { signup, signin } = require('../controllers/auth');
 

@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const Schema = mongoose.Schema;
 
+
 const userSchema = new Schema(
   {
     email: {
@@ -28,9 +29,20 @@ const userSchema = new Schema(
       maxlength: [20, 'Phone number cannot be longer than 20 characters'],
       validate: [validator.isMobilePhone, 'Phone number is not valid'],
     },
+    profilePicture: {
+      type: String,
+      default: 'https://i.stack.imgur.com/34AD2.jpg'
+    },
+    rating: {
+      type: String
+    },
+    totalSales: {
+      type: String
+    },
     savedSneakers: [],
     purchasedSneakers: [],
     sellingSneakers: [],
+    reviews: [],
   },
   {
     timestamps: true,
