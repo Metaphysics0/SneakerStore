@@ -12,8 +12,10 @@
       "sellar": "Neil Mayers",
       "sellarRating": 4,
       "dateListed": "12/22/2020",
+      "condition": "New",
       "description":
         "Profile of the Nike Kobe 9 Elite Low A product of design innovation, Kobe Bryant's ninth signature basketball shoe with Nike features three of the brand's leading technologies: Lunarlon, Flywire, and Flyknit."
+
     },
     {
       "id": 2,
@@ -27,8 +29,10 @@
       "sellar": "Toni Collette",
       "sellarRating": 4,
       "dateListed": "12/22/2020",
+      "condition": "New",
       "description":
         "Profile of the Nike Kobe 9 Elite Low A product of design innovation, Kobe Bryant's ninth signature basketball shoe with Nike features three of the brand's leading technologies: Lunarlon, Flywire, and Flyknit."
+
     },
     {
       "id": 3,
@@ -42,8 +46,10 @@
       "sellar": "Toni Collette",
       "sellarRating": 4,
       "dateListed": "12/22/2020",
+      "condition": "New",
       "description":
         "Profile of the Nike Kobe 9 Elite Low A product of design innovation, Kobe Bryant's ninth signature basketball shoe with Nike features three of the brand's leading technologies: Lunarlon, Flywire, and Flyknit."
+
     },
     {
       "id": 4,
@@ -57,6 +63,7 @@
       "sellar": "Toni Collette",
       "sellarRating": 4,
       "dateListed": "12/22/2020",
+      "condition": "New",
       "description":
         "Profile of the Nike Kobe 9 Elite Low A product of design innovation, Kobe Bryant's ninth signature basketball shoe with Nike features three of the brand's leading technologies: Lunarlon, Flywire, and Flyknit."
     }
