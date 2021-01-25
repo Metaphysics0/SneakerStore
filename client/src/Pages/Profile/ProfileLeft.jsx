@@ -15,6 +15,7 @@ const ProfileLeft = () => {
     async function fetchData() {
       const userDataResponse =  await getUserById(auth.userId)
       setData(userDataResponse);
+      setFile(userDataResponse.profilePicture)
     }
     fetchData();
   }, [auth.userId]); 
@@ -29,7 +30,7 @@ const ProfileLeft = () => {
     const data = new FormData();
     data.append('file', file);
     data.append('email', userData.email);
-    changeProfile(data);
+    await changeProfile(data).then(res => console.log(res));
   }
 
 
