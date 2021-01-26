@@ -26,7 +26,11 @@ const sneakerSchema = new Schema(
     condition: '',
     extraInfo: '',
     userID: '', // owner id 
-    viewedBy: [],
+    views: '',
+    available: {
+      type: Boolean
+    }, 
+    
   },
   {
     timestamps: true,
