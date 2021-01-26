@@ -13,6 +13,9 @@
     letter-spacing: 1px;
     text-decoration: underline;
     align-self: flex-start;
+    &--black {
+      color: #000;
+    }
   }
   &__impact-2 {
     font-family: 'Montserrat';
