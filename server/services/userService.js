@@ -15,6 +15,9 @@ class user {
   updateProfile = (id, updatedInfo) => {
     return this.db.updateProfile(id, updatedInfo);
   };
+  updateSneaker = (id , sneakerObj) => {
+    return this.db.updateSneaker(id , sneakerObj);
+  }
 }
 
 module.exports = new user();

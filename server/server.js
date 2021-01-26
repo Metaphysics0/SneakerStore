@@ -20,6 +20,8 @@ app.use(cookieParser());
 
 app.use('/api/users', require('./routes/userRouter'));
 
+app.use('/api/sneakers', require('./routes/sneakerRouter'));
+
 // server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

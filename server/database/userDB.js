@@ -35,6 +35,14 @@ class userMethods {
     console.log(updatedUserDB);
     return updatedUserDB;
   }
+
+  async updateSneaker(id , sneakerObj) {
+    const updatedUserDB = await User.updateOne(
+      { _id: id }, 
+      { $push: { sellingSneakers : sneakerObj} }
+    )
+    return updatedUserDB
+  }
 }
 
 module.exports = { userMethods };

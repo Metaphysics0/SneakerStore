@@ -57,6 +57,7 @@ const getUserById = async (req, res) => {
     return res.send(errors.incorrectID);
   }
   const user = {
+    id: userDB._id,
     name: userDB.name,
     savedSneakers: userDB.savedSneakers,
     email: userDB.email,
@@ -92,6 +93,12 @@ const logoutUser = async (req, res) => {
   res.send('deleted token');
 };
 
+const uploadSneaker = async (req, res) => {
+  console.log(req.body);
+  const updateUser = await User.updateSneaker(req.body.userID, req.body)
+  res.send('You sneaker has been added');
+}
+
 module.exports = {
   test,
   addUser,
@@ -99,4 +106,5 @@ module.exports = {
   getUserById,
   updateUser,
   logoutUser,
+  uploadSneaker
 };
