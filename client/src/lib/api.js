@@ -33,11 +33,20 @@ const logout = async () => {
 const getUserById = async (id) => {
   try {
     const response = await axios.get(BASE_URL + `/api/users/${id}`);
-    console.log(response.data)
     return response.data;
   } catch (err) {
     console.log(err);
   }
 };
 
-export { signup, login, logout, getUserById };
+const uploadSneaker = async (sneakerObj) => {
+  try {
+    const response = await axios.post(BASE_URL + '/api/users/uploadSneaker', sneakerObj);
+    return response.data
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+export { signup, login, logout, getUserById, uploadSneaker };
