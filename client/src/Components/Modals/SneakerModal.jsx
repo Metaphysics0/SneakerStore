@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { uploadSneaker } from '../../lib/api';
+import { addSneakertoUser, uploadSneaker } from '../../lib/api';
 
 function SneakerModal (props) {
     const [ extraInfo, setExtraInfo ] = useState('');
@@ -34,8 +34,7 @@ function SneakerModal (props) {
       newObject.condition = condition; 
       newObject.extraInfo = extraInfo;
       newObject.userID =  props.userid;
-      await uploadSneaker(newObject);
-      // we also need to know the user who is uploading now & add to sellingSneakers
+      await addSneakertoUser(newObject);
     }
 
     return (

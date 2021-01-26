@@ -3,33 +3,36 @@ const Schema = mongoose.Schema;
 
 const sneakerSchema = new Schema(
   {
-    picture: {
-      type: String,
-      required: true, 
+    id:'',
+    brand: '',
+    colorway: '',
+    gender: '',
+    name: '',
+    releaseDate: '',
+    retailPrice: {
+      type: Number
     },
-    brand: {
-      type: String, 
-      required: true,
+    shoe: '',
+    styleId: '',
+    title: '',
+    year: {
+      type: Number
     },
-    productDescription: {
-      type: String,
-      required: true, 
+    media: {
+      imageUrl: '',
+      smallImageUrl: '',
+      thumbUrl: ''
     },
-    askingPrice: {
-      type: Number,
-      required: true, 
-    },
-    availability: {
-      type: Boolean,
-      default: true,
-    },
+    condition: '',
+    extraInfo: '',
+    userID: '', // owner id 
     viewedBy: [],
-    ownedBy: [],//will consist of owner _id
   },
   {
     timestamps: true,
     collection: 'sneakers',
   }
 );
-module.exports = mongoose.model('Sneaker', sneakerSchema);
+const sneaker = (module.exports = mongoose.model('Sneaker', sneakerSchema));
+module.exports = sneaker;
 

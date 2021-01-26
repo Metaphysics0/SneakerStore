@@ -39,7 +39,8 @@ const getUserById = async (id) => {
   }
 };
 
-const uploadSneaker = async (sneakerObj) => {
+const addSneakertoUser = async (sneakerObj) => {
+  uploadSneaker(sneakerObj)
   try {
     const response = await axios.post(BASE_URL + '/api/users/uploadSneaker', sneakerObj);
     return response.data
@@ -49,4 +50,14 @@ const uploadSneaker = async (sneakerObj) => {
   }
 }
 
-export { signup, login, logout, getUserById, uploadSneaker };
+const uploadSneaker = async (sneakerObj) => {
+  try {
+    const response = await axios.post(BASE_URL + '/api/sneakers/addSneakerDB', sneakerObj);
+    return response.data
+  }
+  catch(err) {
+    console.log(err);
+  }
+}
+
+export { signup, login, logout, getUserById, addSneakertoUser, uploadSneaker};
