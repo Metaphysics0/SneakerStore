@@ -30,7 +30,7 @@ const sneakerSchema = new Schema(
     available: {
       type: Boolean
     }, 
-    
+    sellerName:''
   },
   {
     timestamps: true,

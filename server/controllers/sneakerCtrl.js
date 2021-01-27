@@ -1,7 +1,7 @@
 const Sneaker = require('../services/sneakerService');
 const User = require('../services/userService');
 
-const addSneaker = async (req, res) => {
+const addSneakerDB = async (req, res) => {
   const newSneaker = req.body;
   try {
     const newSkrDB = await Sneaker.add(newSneaker);
@@ -18,7 +18,7 @@ const getSneaker = async (req, res) => {
         // if (!userDB || userDB.error) {
         //   return res.send(errors.incorrectID);
         // }
-        res.json(sneakerDB);
+        // res.json(sneakerDB);
         return res.status(201).json(sneakerDB);
     } catch (e) {
         return res.send(e);
@@ -46,10 +46,8 @@ const getAllSneakers = async (req, res) => {
     }
   };
   
-  
-
 module.exports ={
-    addSneaker,
+    addSneakerDB,
     getSneaker,
     purchasedSneaker,
     getAllSneakers,

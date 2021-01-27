@@ -3,11 +3,22 @@ import moment from 'moment';
 import { AiFillStar } from 'react-icons/ai';
 import { FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { savingSneakers } from '../lib/api';
+import { useAuth } from '../context/AuthContext';
 
 const ShoeCard = ({ sneaker }) => {
+  const {auth} = useAuth();
   // Render star icons based on rating
   const star = () => <AiFillStar className="gold" />;
   const rating = (num) => [...Array(num)].map(star);
+
+  if(!sneaker) {
+    return <div>Loading</div>
+  }
+
+  const handleLike = () => {
+    savingSneakers(userId, sneaker);
+  }
 
   return (
     <div key={sneaker._id} className="shoe__content">
@@ -20,7 +31,7 @@ const ShoeCard = ({ sneaker }) => {
           Price: &nbsp;<span>${sneaker.retailPrice}</span>
         </p>
         <p className="shoe__sellar">
-          Seller: {sneaker.userID}&nbsp;{rating(4)}
+          Seller: {sneaker.sellerName}&nbsp;{rating(4)}
         </p>
         {/* <p className="shoe__views mb-1">Views: {sneaker.viewedBy.length || '0'}</p> */}
         <p className="shoe__date">Date Listed: {moment(sneaker.updatedAt).format('MM/DD/YYYY')}</p>
@@ -28,7 +39,7 @@ const ShoeCard = ({ sneaker }) => {
           <Link to={`/product/${sneaker.id}`}>
             <button className="shoe__btn">View</button>
           </Link>
-          <FaRegHeart className="shoe__icon" />
+          <FaRegHeart className="shoe__icon" onClick={handleLike} />
         </div>
       </div>
     </div>

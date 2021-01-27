@@ -40,18 +40,18 @@ const getUserById = async (id) => {
 };
 
 const addSneakertoUser = async (sneakerObj) => {
-  uploadSneaker(sneakerObj);
   try {
-    const response = await axios.post(BASE_URL + '/api/users/uploadSneaker', sneakerObj);
+    const response = await axios.post(BASE_URL + '/api/users/sell-sneaker', sneakerObj);
     return response.data;
   } catch (err) {
     console.log(err);
   }
+  uploadSneaker(sneakerObj);
 };
 
 const uploadSneaker = async (sneakerObj) => {
   try {
-    const response = await axios.post(BASE_URL + '/api/sneakers/addSneakerDB', sneakerObj);
+    const response = await axios.post(BASE_URL + '/api/sneakers/add-sneaker-in-DB', sneakerObj);
     return response.data;
   } catch (err) {
     console.log(err);
@@ -76,6 +76,15 @@ const getAllSneakers = async () => {
   }
 };
 
+const savingSneakers = async (userId, sneaker) => {
+  try {
+    const response = await axios.post(BASE_URL + `/api/users/liking-sneakers/:${userId}`, sneaker);
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 export {
   signup,
   login,
@@ -85,4 +94,5 @@ export {
   uploadSneaker,
   getSneakerById,
   getAllSneakers,
+  savingSneakers
 };

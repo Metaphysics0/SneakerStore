@@ -17,6 +17,7 @@ const MySneakers = () => {
     fetchData();
   }, [auth.userId]);
 
+  console.log(userData)
   //we can show listed sneakers here // maybe sold and purchased too
 
   const star = () => <AiFillStar className="gold star" />;
@@ -26,9 +27,9 @@ const MySneakers = () => {
     <div className="my-sneakers">
       <h1 className="heading__impact mb-3">Current Listings:</h1>
       <div className="shoe mb-4">
-        {data.shoes.map((shoe) => (
-          <ShoeCard shoe={shoe} />
-        ))}
+        {userData.sellingSneakers ? userData.sellingSneakers.map((shoe) => (
+          <ShoeCard sneaker={shoe} />
+        )): <div>No Listings </div>}
       </div>
       <h2 className="heading__impact mb-3">Saved Sneakers:</h2>
       <div className="shoe mb-4">
