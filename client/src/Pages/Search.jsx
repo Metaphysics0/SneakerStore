@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Logo from '../img/logos/another-1.png';
 import Data from './data.json';
 import Data2 from './data2.json';
 import ShoeCard from '../Components/ShoeCard';
+import { getAllSneakers } from '../lib/api';
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [sneakers, setSneakers] = useState([]);
+
+  // Get all data from Mongo
+  useEffect(() => {
+    getAllSneakers().then((res) => {
+      console.log('SNEAKERS: ', res);
+      setSneakers(res);
+    });
+  }, []);
 
   // Dynamic Search
+  const [searchTerm, setSearchTerm] = useState('');
   const results = !searchTerm
-    ? Data.shoes
-    : Data.shoes.filter(
-        (shoe) =>
-          shoe.brand.toLowerCase().includes(searchTerm) ||
-          shoe.name.toLowerCase().includes(searchTerm) ||
-          shoe.brand.includes(searchTerm) ||
-          shoe.name.includes(searchTerm)
+    ? sneakers
+    : sneakers.filter(
+        (sneaker) =>
+          sneaker.title.toLowerCase().includes(searchTerm) || sneaker.title.includes(searchTerm)
       );
 
   const handleChange = (e) => {
@@ -37,16 +44,16 @@ const Search = () => {
       </div>
       <h3 className="heading__impact mb-3 clamp-1">Recent listings</h3>
       <div className="shoe mb-4">
-        {results.map((shoe) => (
-          <ShoeCard key={shoe.id} shoe={shoe} />
+        {results.map((sneaker) => (
+          <ShoeCard key={sneaker._id} sneaker={sneaker} />
         ))}
       </div>
       <div className="heading__impact mb-3 clamp-1">Featured Products</div>
-      <div className="shoe">
-        {Data2.shoes.map((shoe) => (
-          <ShoeCard shoe={shoe} />
+      {/* <div className="shoe">
+        {Data2.shoes.map((sneaker) => (
+          <ShoeCard sneaker={sneaker} />
         ))}
-      </div>
+      </div> */}
     </>
   );
 };

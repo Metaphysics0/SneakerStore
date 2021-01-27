@@ -6,7 +6,6 @@ class sneaker {
   getById = (id) => {
     return this.db.get(id);
   };
-
   add = (sneaker) => {
     return this.db.add(sneaker);
   };
@@ -15,9 +14,9 @@ class sneaker {
       return this.db.delete(sneaker);
   }
 
-//   updateSneaker = (id , sneakerObj) => {
-//     return this.db.updateSneaker(id , sneakerObj);
-//   }
+  getAll = () => {
+    return this.db.getAll();
+  };
 }
 
 module.exports = new sneaker();

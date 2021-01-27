@@ -1,3 +1,4 @@
+// Margin/Padding utils
 .mb-1 {
   margin-bottom: 1rem;
 }
@@ -22,6 +23,7 @@
 .mt-4 {
   margin: 4rem 0;
 }
+// Flex utilities
 .flex {
   display: flex;
 }
@@ -40,6 +42,10 @@
     height: 60%;
   }
 }
+.flex-col-2 {
+  @extend .flex-col;
+  text-align: center;
+}
 .flex-center {
   display: flex;
   width: fit-content;
@@ -56,6 +62,11 @@
   justify-content: space-between;
   align-items: center;
 }
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+// Calc() utils
 .clamp-1 {
   width: calc(100% - 3rem);
   margin-left: auto;
@@ -74,6 +85,9 @@
   color: #ffd700;
   text-shadow: 2px 2px 1px #333;
 }
+.star {
+  font-size: 2rem;
+}
 .bg-grey {
   border-top: 2px dotted rgb(58, 58, 58);
   height: 100%;
@@ -81,7 +95,6 @@
   border-radius: 0 0 15px 15px;
   background: #f4f4f4;
 }
-
 // Label image overlay
 .label-center {
   display: inherit;
@@ -113,12 +126,10 @@
     text-align: center;
   }
 }
-
 .label-center:hover .overlay {
   opacity: 1;
   cursor: pointer;
 }
-
 .btn-wrap {
   width: 100%;
   display: flex;
@@ -133,4 +144,12 @@
   &:hover {
     color: var(--impact-violet);
   }
+}
+.green {
+  color: #008000;
+  font-weight: 700;
+}
+.yellow {
+  color: #9f9f00;
+  font-weight: 700;
 }
