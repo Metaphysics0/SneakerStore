@@ -12,11 +12,8 @@ const SneakerPage = () => {
   }, )
 
   return (
-    <div>
-      {console.log(id)}
-      <h1>Sneaker Page!!!</h1>
     <div className="product">
-      <PageTop Data={Data} />
+      <PageTop Data={Data} id={id} />
       <PageBottom />
     </div>
   );

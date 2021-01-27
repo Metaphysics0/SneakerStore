@@ -1,30 +1,31 @@
 import React from 'react';
+import moment from 'moment';
 import { AiFillStar } from 'react-icons/ai';
 import { FaRegHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const ShoeCard = ({ shoe }) => {
+const ShoeCard = ({ sneaker }) => {
   // Render star icons based on rating
   const star = () => <AiFillStar className="gold" />;
   const rating = (num) => [...Array(num)].map(star);
 
   return (
-    <div key={shoe.id} className="shoe__content">
-      <img className="shoe__img mb-2" src={shoe.img} alt="shoe" />
+    <div key={sneaker._id} className="shoe__content">
+      <img className="shoe__img mb-2" src={sneaker.media.thumbUrl} alt="shoe" />
       <div className="bg-grey">
         <p className="shoe__title mb-1">
-          {shoe.brand} {shoe.name} <br /> ({shoe.year})
+          {sneaker.title} <br /> ({sneaker.releaseDate})
         </p>
         <p className="shoe__price">
-          Price: &nbsp;<span>${shoe.price}</span>
+          Price: &nbsp;<span>${sneaker.retailPrice}</span>
         </p>
         <p className="shoe__sellar">
-          Seller: {shoe.sellar}&nbsp;{rating(shoe.sellarRating)}
+          Seller: {sneaker.userID}&nbsp;{rating(4)}
         </p>
-        <p className="shoe__views mb-1">Views: {shoe.views}</p>
-        <p className="shoe__date">Date Listed: {shoe.dateListed}</p>
+        {/* <p className="shoe__views mb-1">Views: {sneaker.viewedBy.length || '0'}</p> */}
+        <p className="shoe__date">Date Listed: {moment(sneaker.updatedAt).format('MM/DD/YYYY')}</p>
         <div className="space-between clamp-1">
-          <Link to={`/product/${shoe.id}`}>
+          <Link to={`/product/${sneaker.id}`}>
             <button className="shoe__btn">View</button>
           </Link>
           <FaRegHeart className="shoe__icon" />

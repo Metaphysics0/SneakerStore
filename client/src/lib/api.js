@@ -40,24 +40,49 @@ const getUserById = async (id) => {
 };
 
 const addSneakertoUser = async (sneakerObj) => {
-  uploadSneaker(sneakerObj)
+  uploadSneaker(sneakerObj);
   try {
     const response = await axios.post(BASE_URL + '/api/users/uploadSneaker', sneakerObj);
-    return response.data
-  }
-  catch (err) {
+    return response.data;
+  } catch (err) {
     console.log(err);
   }
-}
+};
 
 const uploadSneaker = async (sneakerObj) => {
   try {
     const response = await axios.post(BASE_URL + '/api/sneakers/addSneakerDB', sneakerObj);
-    return response.data
-  }
-  catch(err) {
+    return response.data;
+  } catch (err) {
     console.log(err);
   }
-}
+};
 
-export { signup, login, logout, getUserById, addSneakertoUser, uploadSneaker};
+const getSneakerById = async (id) => {
+  try {
+    const response = await axios.get(BASE_URL + '/api/sneakers/get-sneaker/' + id);
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const getAllSneakers = async () => {
+  try {
+    const response = await axios.get(BASE_URL + '/api/sneakers/get-sneakers');
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export {
+  signup,
+  login,
+  logout,
+  getUserById,
+  addSneakertoUser,
+  uploadSneaker,
+  getSneakerById,
+  getAllSneakers,
+};
