@@ -41,13 +41,14 @@ const SellPage = () => {
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value)
+    console.log(searchTerm.split(' ')) //Idea if we want to search with spacing between words
     if (searchTerm.length > 0 ) {
       let filter = sneakers.filter(
         (shoe) =>
-          shoe.brand.toLowerCase().includes(searchTerm) ||
-          shoe.name.toLowerCase().includes(searchTerm) ||
-          shoe.brand.includes(searchTerm) ||
-          shoe.name.includes(searchTerm)
+          shoe.title.toLowerCase().includes(searchTerm) ||
+          shoe.year.toString().toLowerCase().includes(searchTerm) ||
+          shoe.title.includes(searchTerm) ||
+          shoe.year.toString().includes(searchTerm)
       );
       setFiltered(filter);
       // console.log(filter)
@@ -80,7 +81,7 @@ const SellPage = () => {
                 <img className="shoe__img mb-2" src={item.media.smallImageUrl} alt="shoe" />
                 <div className="bg-grey">
                   <p className="shoe__title mb-1">
-                    {item.brand} {item.name} <br /> ({item.year})
+                    {item.title} <br /> ({item.year})
                   </p>
                   <p className="shoe__price">
                     Retail Price: &nbsp;<span>${item.retailPrice}</span>
@@ -106,6 +107,7 @@ const SellPage = () => {
         )}
       </Row>
       <SneakerModal
+          username={userData.name}
           userid={auth.userId}
           sneaker={modalVals}
           show={modalShow}
