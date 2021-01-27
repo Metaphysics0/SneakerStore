@@ -11,6 +11,10 @@ class sneaker {
     return this.db.add(sneaker);
   };
 
+  delete = (sneaker) => {
+      return this.db.delete(sneaker);
+  }
+
 //   updateSneaker = (id , sneakerObj) => {
 //     return this.db.updateSneaker(id , sneakerObj);
 //   }

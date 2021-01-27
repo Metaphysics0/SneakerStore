@@ -41,6 +41,7 @@ const userSchema = new Schema(
     savedSneakers: [],
     purchasedSneakers: [],
     sellingSneakers: [],
+    soldSneakers: [],
     reviews: [],
   },
   {

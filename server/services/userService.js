@@ -18,6 +18,9 @@ class user {
   updateSneaker = (id , sneakerObj) => {
     return this.db.updateSneaker(id , sneakerObj);
   }
+  boughtSneaker = (id, sneakerObj) => {
+    return this.db.boughtSneaker(id, sneakerObj);
+  }
 }
 
 module.exports = new user();

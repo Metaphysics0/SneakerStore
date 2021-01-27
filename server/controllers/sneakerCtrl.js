@@ -1,6 +1,5 @@
 const Sneaker = require('../services/sneakerService');
-const sneaker = require('../models/sneaker');
-const sneakerDB = require('../database/sneakerDB');
+const User = require('../services/userService');
 
 const addSneaker = async (req, res) => {
     const newSneaker = req.body;
@@ -20,10 +19,22 @@ const getSneaker = async (req, res) => {
     //   return res.send(errors.incorrectID);
     // }
     res.json(sneakerDB);
-  };
+};
+
+const purchasedSneaker = async (req, res ) => {
+    try {
+        const userSneaker = await User.boughtSneaker(req.params.id, req.body);
+        const deletedSneaker = await Sneaker.delete(req.body);
+        res.status(201).json({ userSneaker, deletedSneaker });
+    } catch(e){
+        return res.send(e);
+    }
+    
+}
   
 
 module.exports ={
     addSneaker,
-    getSneaker
+    getSneaker,
+    purchasedSneaker,
 }

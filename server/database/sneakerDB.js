@@ -15,6 +15,15 @@ class sneakerMethods {
     const sneakerDB = await Sneaker.create({ ...sneaker });
     return sneakerDB;
   }
+
+  async delete(sneakerObj) {
+    try {
+        const sneaker = await Sneaker.deleteOne({ id: sneakerObj.id });
+        return {message: "Sneaker sold" , sneaker};
+      } catch (e) {
+        return { error: "Sneaker could not be deleted" };
+    }
+  }
 }
 
 module.exports = { sneakerMethods };

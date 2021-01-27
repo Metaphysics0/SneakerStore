@@ -43,6 +43,22 @@ class userMethods {
     )
     return updatedUserDB
   }
+  async boughtSneaker (id, sneakerObj) {
+    const updatedUserDB = await User.updateOne(
+      { _id: id}, 
+      { $push: { purchasedSneakers : sneakerObj}}
+    )
+    this.soldSneaker(sneakerObj.ownerID);
+    return updatedUserDB
+  }
+
+  async soldSneaker (ownerId) {
+    const updatedSoldDB = await User.updateOne(
+      { _id: ownerId}, 
+      { $push: { soldSneakers : sneakerObj}}
+    )
+    return updatedSoldDB;
+  }
 }
 
 module.exports = { userMethods };
