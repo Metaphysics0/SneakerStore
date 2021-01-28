@@ -93,11 +93,22 @@ const logoutUser = async (req, res) => {
   res.send('deleted token');
 };
 
-const uploadSneaker = async (req, res) => {
-  console.log(req.body);
-  const updateUser = await User.updateSneaker(req.body.userID, req.body)
-  res.send('You sneaker has been added');
+const sellSneaker = async (req, res) => {
+  console.log(req.body); // can remove
+  const updateUser = await User.addToSelling(req.body.userID, req.body)
+  res.send(updateUser);
 }
+
+const likingSneakers = async (req, res) => {
+  const sneakerToLike = req.body;
+  const id = req.params.id;
+  try {
+    const updatedUser = await User.likeSneaker(id, sneakerToLike);
+    res.json(updatedUser);
+  } catch (e) {
+    return res.send({ error: errorsArray(e) });
+  }
+};
 
 module.exports = {
   test,
@@ -106,5 +117,6 @@ module.exports = {
   getUserById,
   updateUser,
   logoutUser,
-  uploadSneaker
+  sellSneaker, 
+  likingSneakers, 
 };

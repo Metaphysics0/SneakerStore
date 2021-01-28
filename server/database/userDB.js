@@ -36,13 +36,14 @@ class userMethods {
     return updatedUserDB;
   }
 
-  async updateSneaker(id , sneakerObj) {
+  async addToSelling(id , sneakerObj) { 
     const updatedUserDB = await User.updateOne(
       { _id: id }, 
       { $push: { sellingSneakers : sneakerObj} }
     )
     return updatedUserDB
   }
+
   async boughtSneaker (id, sneakerObj) {
     const updatedUserDB = await User.updateOne(
       { _id: id}, 
@@ -59,6 +60,16 @@ class userMethods {
     )
     return updatedSoldDB;
   }
+
+  async likeSneaker (Id, sneakerObj) {
+    const updatedSoldDB = await User.updateOne(
+      { _id: Id}, 
+      { $push: { savedSneakers : sneakerObj}}
+    )
+    return updatedSoldDB;
+  }
+
+
 }
 
 module.exports = { userMethods };

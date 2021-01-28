@@ -32,7 +32,7 @@ class sneakerMethods {
   async delete(sneakerObj) {
     try {
         const sneaker = await Sneaker.deleteOne({ id: sneakerObj.id });
-        return {message: "Sneaker sold" , sneaker};
+        return sneaker;
       } catch (e) {
         return { error: "Sneaker could not be deleted" };
     }

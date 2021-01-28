@@ -1,4 +1,5 @@
 const { userMethods } = require('../database/userDB');
+const sneaker = require('../models/sneaker');
 class user {
   constructor() {
     this.db = new userMethods();
@@ -15,11 +16,14 @@ class user {
   updateProfile = (id, updatedInfo) => {
     return this.db.updateProfile(id, updatedInfo);
   };
-  updateSneaker = (id , sneakerObj) => {
-    return this.db.updateSneaker(id , sneakerObj);
+  addToSelling = (id , sneakerObj) => { // add to sellingSneakers Array
+    return this.db.addToSelling(id , sneakerObj);
   }
   boughtSneaker = (id, sneakerObj) => {
     return this.db.boughtSneaker(id, sneakerObj);
+  }
+  likeSneaker = (id, sneakerObj) => {
+    return this.db.likeSneaker(id, sneakerObj);
   }
 }
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { logoutUser, addUser, loginUser, getUserById, uploadSneaker } = require('../controllers/userCtrl');
+const { logoutUser, addUser, loginUser, getUserById, sellSneaker , likingSneakers} = require('../controllers/userCtrl');
 
 // router.get('/', test);
 
@@ -15,9 +15,11 @@ router.post('/logout', logoutUser);
 // router.get('/:id', auth, getUserById);
 router.get('/:id', getUserById);
 
-//maybe to clear stuff up we will make a new js file for sneakerRouter
-router.post('/uploadSneaker', uploadSneaker)
+//1st route that gets called when listing a sneaker
+router.post('/sell-sneaker', sellSneaker)
 
 // router.put('/:id', auth, updateUser);
+
+router.post('/liking-sneakers/:id', likingSneakers)
 
 module.exports = router;

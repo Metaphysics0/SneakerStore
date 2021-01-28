@@ -1,19 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-<<<<<<< HEAD
-const { addSneaker, getSneaker, purchasedSneaker } = require('../controllers/sneakerCtrl');
-=======
-const { addSneaker, getSneaker, getAllSneakers } = require('../controllers/sneakerCtrl');
->>>>>>> 10ec9d902303b0e17dc308df71b08a5a25b64dc0
+const { addSneakerDB, getSneaker, purchasedSneaker , getAllSneakers } = require('../controllers/sneakerCtrl');
 
-//maybe to clear stuff up we will make a new js file for sneakerRouter
-router.post('/addSneakerDB', addSneaker);
+//second route that gets called when selling a sneaker 
+router.post('/add-sneaker-in-DB', addSneakerDB); 
 
 router.get('/get-sneaker/:id', getSneaker);
 
 router.get('/get-sneakers', getAllSneakers);
 
-router.post('/purchased-sneaker/:id', purchasedSneaker)
+router.post('/purchased-sneaker/:id', purchasedSneaker);
 
 module.exports = router;
