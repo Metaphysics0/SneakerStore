@@ -49,11 +49,11 @@ const Search = () => {
         ))}
       </div>
       <div className="heading__impact mb-3 clamp-1">Featured Products</div>
-      {/* <div className="shoe">
+      <div className="shoe">
         {Data2.shoes.map((sneaker) => (
           <ShoeCard sneaker={sneaker} />
         ))}
-      </div> */}
+      </div>
     </>
   );
 };

@@ -6,19 +6,19 @@ import { Link } from 'react-router-dom';
 import { savingSneakers } from '../lib/api';
 import { useAuth } from '../context/AuthContext';
 
-const ShoeCard = ({ sneaker }) => {
-  const {auth} = useAuth();
+const ShoeCard = ({ userId, sneaker }) => {
+  const { auth } = useAuth();
   // Render star icons based on rating
   const star = () => <AiFillStar className="gold" />;
   const rating = (num) => [...Array(num)].map(star);
 
-  if(!sneaker) {
-    return <div>Loading</div>
+  if (!sneaker) {
+    return <div>Loading</div>;
   }
 
   const handleLike = () => {
     savingSneakers(userId, sneaker);
-  }
+  };
 
   return (
     <div key={sneaker._id} className="shoe__content">
